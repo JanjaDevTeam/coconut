@@ -9,41 +9,6 @@ h2 { font-size: 67.773px; }
 h3 { font-size: 41.887px; }
 h4 { font-size: 25.888px; }
 
-#banner {
-	height: 350px;
-	background-color: lightgray;
-	background-image: url(../img/tmp/bg4.jpeg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: white;
-}
-
-#banner h3, h2 {
-	padding: 4%;
-}
-
-#banner p {
-	padding: 0 10%;
-}
-
-#logo-container {
-	height: 80px;
-}
-#menu { 
-	line-height: 80px;
-}
-#menu a {
-	font-size: 16px;
-	color: #36BFA5;
-	text-decoration: none;
-}
-
-
-.logo {
-	height: 80px;
-	width: auto;
-}
-
 
 
 

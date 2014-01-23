@@ -4,21 +4,21 @@
 	box-sizing: border-box;
 }
 
-.container_100 {
+.container-100 {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
 	height: auto;
 }
 
-.container_90 {
+.container-90 {
 	width: 90%;
 	margin: 0 auto;
 	padding: 0;
 	height: auto;
 }
 
-.container_80 {
+.container-80 {
 	width: 80%;
 	margin: 0 auto;
 	padding: 0;
