@@ -17,10 +17,10 @@
 		<div id='logo'class='col-1-3'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></div>
 		<div class='col-2-3 text-r' id='menu'>
 			<ul>
-				<li><strong>EXPLORAR</strong></li>
-				<a href='#'><li><strong>ENVIAR PROJETO</strong></li></a>
+				<li><a href='#'><strong>EXPLORAR</strong></a></li>
+				<li><a href='#'><strong>ENVIAR PROJETO</strong></a></li>
 				<li class='selecionado'><strong>REGISTRAR</strong></li>
-				<li><strong>LOGAR</strong></li>
+				<li><a href='#'><strong>LOGAR</strong></a></li>
 			</ul>
 		</div>
 	</div>
