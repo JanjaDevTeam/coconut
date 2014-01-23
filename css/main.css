@@ -10,6 +10,14 @@ h2 { font-size: 67.773px; }
 h3 { font-size: 41.887px; }
 h4 { font-size: 25.888px; }
 
+hr { 
+	color: #E5E5E5;
+	background-color: #E5E5E5;
+	border: none;
+	height: 2px;
+	margin: 2% 0;
+}
+
 
 #top-borda {
 	background-color: #FF670D;
@@ -22,20 +30,17 @@ h4 { font-size: 25.888px; }
 	width: auto;
 }
 
-#logo {
-	line-height: 50px;
-}
 
 .logo {
 	height: 80px;
 	padding-top: 15px;
 }
-#menu { line-height: 50px; }
 
 #menu ul {
 	list-style: none;
 	margin: 0 auto;
-	margin-top:35px;
+	padding: 0;
+	margin-top: 50px;
 }
 
 #menu ul li {
@@ -66,8 +71,30 @@ h4 { font-size: 25.888px; }
 	padding: 0;
 	margin: 0;
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
--moz-box-shadow:    0px 5px 11px 0px rgba(50, 50, 50, 0.75);
-box-shadow:         0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+}
+
+#banner {
+overflow: auto;
+	
+}
+
+#projetos { margin-top: 10px; padding-top: 4%;}
+#projetos img {
+	width: 100%;
+	height: auto;
+}
+
+.ultimos {
+	background-color: #F8F8F8;
+	min-height: 250px;
+	color: #BFBFBF;
+}
+
+.ultimos p {
+	margin-top: 0;
+	color: #323232;
 }
 
 
