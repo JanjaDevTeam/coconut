@@ -49,6 +49,11 @@ h1, h2, h3, h4 {
 	float: left;
 }
 
+.col-1-4 {
+	width: 25%;
+	float: left;
+}
+
 
 .text-r {
 	text-align: right;
@@ -95,6 +100,14 @@ h1, h2, h3, h4 {
 
 .pad-2-v {
 	padding: 2% 0;
+}
+
+.pad-1 {
+	padding: 1%;
+}
+
+.pad-1-v {
+	padding: 1% 0;
 }
 
 .debug {

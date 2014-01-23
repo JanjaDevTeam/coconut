@@ -1,5 +1,6 @@
 body { 
 	font-size: 16px;
+	color: #323232;
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
@@ -10,8 +11,61 @@ h3 { font-size: 41.887px; }
 h4 { font-size: 25.888px; }
 
 
+#top-borda {
+	background-color: #FF670D;
+	height: 10px;
+	width: auto;
+}
 
+#logo-menu {
+	height: 120px;
+	width: auto;
+}
 
+#logo {
+	line-height: 50px;
+}
+
+.logo {
+	height: 80px;
+	padding-top: 15px;
+}
+#menu { line-height: 50px; }
+
+#menu ul {
+	list-style: none;
+	margin: 0 auto;
+	margin-top:35px;
+}
+
+#menu ul li {
+	display: inline;
+	background-color: #FFF;
+	color: grey;
+	padding-bottom: 10px;
+	padding: 50px 2% 25px 2%;
+	
+}
+
+#menu ul li.selecionado {
+	background-color: #FF670D;
+	color: #FFF;
+}
+
+#menu a {
+	text-decoration: none;
+}
+
+.destaque-img {
+	width: 100%;
+	height: auto;
+	border: none;
+	padding: 0;
+	margin: 0;
+	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+}
 
 
 
