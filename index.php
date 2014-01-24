@@ -29,53 +29,142 @@
 	<div id='banner'>
 		<div class='col-1-3-pad-1 bbox text-c'>
 			<img src='img/tmp/01.jpg' class='destaque-img'/>
-			<p>PROJETOS PARA WEB</p>
+			<p><strong>EXPLORE</strong></p>
 		</div>
 		<div class='col-1-3-pad-1 bbox text-c'>
 			<img src='img/tmp/02.jpg' class='destaque-img'/>
-			<p>PROJETOS PARA WEB</p>
+			<p><strong>PARTICIPE</strong></p>
 		</div><div class='col-1-3-pad-1 bbox text-c'>
 			<img src='img/tmp/03.jpg' class='destaque-img'/>
-			<p>PROJETOS PARA WEB</p>
+			<p><strong>CRIE UM PROJETO</strong></p>
 		</div>
 	</div>
 	
 	<div id='projetos'>
-		<div class='text-c'><h4>ÚLTIMOS PROJETOS</h4></div>
+		<div class='text-c'><h4>ÚLTIMOS DESTAQUES</h4></div>
 		<hr/>
 		
-		<div class='ultimos col-1-4-pad-1'>
+		<div id='destaque' class='col-1-4-pad-1'>
 			<div class='container-100'><img src='img/tmp/proj01.jpg' alt='projeto'/></div>
 			<div class='container-100 pad-5 bbox'>
-				<p>PROJETO TAL</p>
-				<span class='small'>Descrição do projeto</span>
+				<div id='destaque-titulo'>
+					<p>CANTO DO COLIBRI</p>
+				</div>
+				<div id='destaque-descricao'>
+					<span class='small'>Guide Bit for a side-scrolling adventure in a primitive world to help his new mysterious friend Ravh return home. </span>
+				</div>
+				<div id='barra-container'>
+					<div id='barra' class='barra-75'></div>
+				</div>
+			</div>
+			<div id='info-container'>
+				<div class='letra-escura'>
+					<div class='col-1-3 bbox text-c'><strong>75%</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>R$120.000,00</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>15</strong></div>
+				</div>
+				
+				<div class='col-1-3 bbox text-c'>concluido</div>
+				<div class='col-1-3 bbox text-c'>arrecadado</div>
+				<div class='col-1-3 bbox text-c'>dias restantes</div>
+			
 			</div>
 		</div>
 		
-		<div class='ultimos col-1-4-pad-1'>
+		
+		
+		<div id='destaque' class='col-1-4-pad-1'>
 			<div class='container-100'><img src='img/tmp/proj02.jpg' alt='projeto'/></div>
 			<div class='container-100 pad-5 bbox'>
-				<p>PROJETO TAL</p>
+				<div id='destaque-titulo'>
+					<p>PRESERVAÇÃO DE CORAIS</p>
+				</div>
+				<div id='destaque-descricao'>
+					Imagine a world cut out of paper- walls that want to breath, & shadows dancing with the floor. 
+				</div>
+				<div id='barra-container'>
+					<div id='barra' class='barra-33'></div>
+				</div>
+			</div>
+			<div id='info-container'>
+				<div class='letra-escura'>
+					<div class='col-1-3 bbox text-c'><strong>33%</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>R$250,00</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>15</strong></div>
+				</div>
+				
+				<div class='col-1-3 bbox text-c'>concluido</div>
+				<div class='col-1-3 bbox text-c'>arrecadado</div>
+				<div class='col-1-3 bbox text-c'>dias restantes</div>
+			
 			</div>
 		</div>
 		
-		<div class='ultimos col-1-4-pad-1'>
+		
+		
+		
+		<div id='destaque' class='col-1-4-pad-1'>
 			<div class='container-100'><img src='img/tmp/proj03.jpg' alt='projeto'/></div>
 			<div class='container-100 pad-5 bbox'>
-				<p>PROJETO TAL</p>
+				<div id='destaque-titulo'>
+					<p>PARAPENTE - CHAPADA DIAMANTINA</p>
+				</div>
+				<div id='destaque-descricao'>
+					We´re proud of we´ve done in a short time but now it´s time of truth. The biggest failure of all? Never trying. Spoh, the Chilean beer.
+				</div>
+				<div id='barra-container'>
+					<div id='barra' class='barra-10'></div>
+				</div>
+			</div>
+			<div id='info-container'>
+				<div class='letra-escura'>
+					<div class='col-1-3 bbox text-c'><strong>10%</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>R$3.000,00</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>15</strong></div>
+				</div>
+				
+				<div class='col-1-3 bbox text-c'>concluido</div>
+				<div class='col-1-3 bbox text-c'>arrecadado</div>
+				<div class='col-1-3 bbox text-c'>dias restantes</div>
+			
 			</div>
 		</div>
 		
-		<div class='ultimos col-1-4-pad-1'>
+		
+		
+		<div id='destaque' class='col-1-4-pad-1'>
 			<div class='container-100'><img src='img/tmp/proj04.jpg' alt='projeto'/></div>
 			<div class='container-100 pad-5 bbox'>
-				<p>PROJETO TAL</p>
+				<div id='destaque-titulo'>
+					<p>MEGAMIX - MASTERIZAÇÃO</p>
+				</div>
+				<div id='destaque-descricao'>
+					Help us fund the remake of our acclaimed Fan Movie STALKER: Monolith's Whisper or get out of here Stalker! 
+				</div>
+				<div id='barra-container'>
+					<div id='barra' class='barra-90'></div>
+				</div>
+			</div>
+			<div id='info-container'>
+				<div class='letra-escura'>
+					<div class='col-1-3 bbox text-c'><strong>90%</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>R$30.000,00</strong></div>
+					<div class='col-1-3 bbox text-c'><strong>15</strong></div>
+				</div>
+				
+				<div class='col-1-3 bbox text-c'>concluido</div>
+				<div class='col-1-3 bbox text-c'>arrecadado</div>
+				<div class='col-1-3 bbox text-c'>dias restantes</div>
+			
 			</div>
 		</div>
 	</div>
-	<br/>
-	<hr/>
-	<br/>
+	
+
+	<div id='concluidos' class='col-1'>
+		<div class='text-c'><h4>PROJETOS CONCLUÍDOS</h4></div>
+		<hr/>
+	</div>
 </div>
 </body>
 </html>
