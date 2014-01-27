@@ -152,7 +152,8 @@ overflow: auto;
 	clear: left;
 }
 
-#concluidos { padding-top: 5%;}
+#concluidos { padding:2% 0;}
+
 
 
 
@@ -186,15 +187,41 @@ input[type="text"]:focus {
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     }
 
-#aleatorios img {
-	width: 65%;
-	height: auto;
-	border-radius: 100%;
-	-moz-border-radius: 100%;
-	-webkit-border-radius: 100%;
+
+
+#aleatorios{
+	padding-right: 4%;
+	margin-bottom: 3%;
+}
+
+#aleatorios h4 {
+	padding-bottom: 3%;
 }
 
 #busca-principal {
 	padding: 1% 0 1% 3%;
 }
 
+#categorias ul {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+}
+
+#categorias ul li {
+	padding: 2% 3%;
+}
+
+.border-left {
+	border-left: 1px solid lightgrey;
+}
+
+#footer {
+	padding-top: 2%;
+	height: 200px;
+	color: light-grey;
+}
+
+.bg-footer {
+	background-color: grey;
+}
