@@ -33,6 +33,7 @@ hr {
 
 .logo {
 	height: 80px;
+	width: auto;
 	padding-top: 15px;
 }
 
@@ -223,5 +224,5 @@ input[type="text"]:focus {
 }
 
 .bg-footer {
-	background-color: grey;
+	background-color: #D4D5CF;
 }
