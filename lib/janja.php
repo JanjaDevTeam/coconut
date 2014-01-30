@@ -12,5 +12,13 @@ class Janja {
 		echo "</pre>";
 	}
 	
+	static function loadTemplate($template, $content='', $data='') {
+		require_once('view/template/' . $template . '.php');
+	}
+	
+	static function loadContent($content, $data='') {
+		require_once('view/content/' . $content . '.php');
+	}
+	
 }
 ?>
