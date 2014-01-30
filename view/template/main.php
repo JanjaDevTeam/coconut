@@ -17,7 +17,7 @@
 	<div id='logo-menu'>
 		<div id='logo'class='col-1-3 bbox'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></div>
 		<!-- main menu -->
-		<?php Janja::loadContent('main_menu'); ?>
+		<?php Janja::loadContent('main_menu', $data); ?>
 	</div>
 
 	<!-- content -->
