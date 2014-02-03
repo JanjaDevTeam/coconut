@@ -158,7 +158,7 @@ overflow: auto;
 
 
 
-input[type="text"] {
+#busca-principal input[type="text"] {
     background: url(../img/search-white.png) no-repeat 10px 11px #444;
     border: 0 none;
     color: #d7d7d7;
@@ -179,7 +179,7 @@ input[type="text"] {
     transition: all 0.7s ease 0s;
     }
 
-input[type="text"]:focus {
+#busca-principal input[type="text"]:focus {
     background: url(../img/search-dark.png) no-repeat 10px 11px #fcfcfc;
     color: #6a6f75;
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
@@ -218,8 +218,8 @@ input[type="text"]:focus {
 }
 
 #footer {
-	padding-top: 2%;
-	height: 200px;
+	padding: 2% 0;
+	#height: 200px;
 	color: light-grey;
 }
 

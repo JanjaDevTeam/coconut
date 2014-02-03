@@ -15,7 +15,7 @@
 <div class='container-90'>
 	
 	<div id='logo-menu'>
-		<div id='logo'class='col-1-3 bbox'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></div>
+		<div id='logo'class='col-1-3 bbox'><a href='index.php'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></a></div>
 		<!-- main menu -->
 		<?php Janja::loadContent('main_menu', $data); ?>
 	</div>
@@ -32,7 +32,7 @@
 <div class='container-100 bg-footer'>
 	<div class='container-80'>
 		<div id='footer' class='text-c'>
-			<h4>FOOTER</h4>
+			<p>Solucionática - Crowd Funding</p>
 		</div>
 	</div>
 </div>

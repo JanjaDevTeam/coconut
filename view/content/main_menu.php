@@ -15,7 +15,7 @@
 				<?php if ($data['selecionado'] == 'registrar') : ?>
 				<li class='selecionado'><strong>REGISTRAR</strong></li>
 				<?php else : ?>
-				<li><a href='#'><strong>REGISTRAR</strong></a></li>
+				<li><a href='registrar.php'><strong>REGISTRAR</strong></a></li>
 				<?php endif; ?>
 				
 				<?php if ($data['selecionado'] == 'logar') : ?>
