@@ -192,7 +192,7 @@ overflow: auto;
 
 #aleatorios{
 	padding-right: 4%;
-	margin-bottom: 3%;
+	margin-bottom: 5%;
 }
 
 #aleatorios h4 {
@@ -219,8 +219,22 @@ overflow: auto;
 
 #footer {
 	padding: 2% 0;
-	#height: 200px;
+	clear: both;
 	color: light-grey;
+}
+
+#footer ul {
+	list-style: none;
+}
+
+#footer ul li {
+	display: inline;
+	padding: 0 2%;
+}
+
+#footer img {
+	width: 180px;
+	height: auto;
 }
 
 .bg-footer {

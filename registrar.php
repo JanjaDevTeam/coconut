@@ -2,7 +2,7 @@
 require_once('lib/janja.php');
 require_once('model/user.php');
 require_once('model/database.php');
-
+/*
 if(isset($_POST['token']) && $_POST['token'] == 'c6dac7f7fb5c8203d2abbceee452e30b') {
 	Janja::debug($_POST);
 	# cadastra usuário
@@ -30,4 +30,9 @@ if(isset($_POST['token']) && $_POST['token'] == 'c6dac7f7fb5c8203d2abbceee452e30
 
 	Janja::loadTemplate('main', 'user/cadastro', $data);
 }
+* 
+*/
+$data['selecionado'] = 'registrar';
+
+Janja::loadTemplate('main', 'index', $data);
 ?>

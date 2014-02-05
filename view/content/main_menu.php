@@ -3,13 +3,13 @@
 				<?php if ($data['selecionado'] == 'explorar') : ?>
 				<li class='selecionado'><strong>EXPLORAR</strong></li>
 				<?php else : ?>
-				<li><a href='#'><strong>EXPLORAR</strong></a></li>
+				<li><a href='explorar.php'><strong>EXPLORAR</strong></a></li>
 				<?php endif; ?>
 				
 				<?php if ($data['selecionado'] == 'enviar') : ?>
 				<li class='selecionado'><strong>ENVIAR PROJETO</strong></li>
 				<?php else : ?>
-				<li><a href='#'><strong>ENVIAR PROJETO</strong></a></li>
+				<li><a href='enviar_projeto.php'><strong>ENVIAR PROJETO</strong></a></li>
 				<?php endif; ?>
 				
 				<?php if ($data['selecionado'] == 'registrar') : ?>
@@ -21,7 +21,7 @@
 				<?php if ($data['selecionado'] == 'logar') : ?>
 				<li class='selecionado'><strong>LOGAR</strong></li>
 				<?php else : ?>
-				<li><a href='#'><strong>LOGAR</strong></a></li>
+				<li><a href='logar.php'><strong>LOGAR</strong></a></li>
 				<?php endif; ?>
 				
 			</ul>
