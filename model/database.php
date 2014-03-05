@@ -55,10 +55,40 @@ class Database extends PDO {
 		$user->setId($id);
 		$user->setName($result[0]['name']);
 		$user->setEmail($result[0]['email']);
-		$user->setPassword($result[0]['password']);
 		$user->setLevel($result[0]['level']);
 		
 		return $user;
+	}
+	
+	public function trocarSenha($user) {
+		$id = $user->getId();
+		$password = $user->getPassword();
+		$sql = "UPDATE user SET password='$password' WHERE id = $id";
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		return $user;
+	}
+	
+	###### PROJETOS #######
+	public function getCotasByProject($id) {
+		$sql = "SELECT id, valor, descricao, quantidade FROM cotas WHERE id_projeto = $id";
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		$cotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		$count = 0;
+		foreach($cotas as $cota) {
+			$sql = "SELECT SUM(quantidade) as quantidade FROM user_cotas where id_cotas=$cota[id]";
+			$stmt = $this->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$quantidade = $result['0']['quantidade'];
+			$cotas[$count]['vendidas'] = $quantidade;
+			$count ++;
+		}
+		
+		return $cotas;
+	
 	}
 	
 	

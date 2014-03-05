@@ -27,7 +27,7 @@
 				</div>
 				<div class='financiado '><strong><span class='letra-escura'>75%</span> financiado</strong></div>
 				<div id='barra-container'>
-					<div id='barra' class='barra-75'></div>
+					<div id='barra' style="width: 75%"></div>
 				</div>
 			</div>
 			<div id='info-container'>
@@ -58,7 +58,7 @@
 				</div>
 				<div class='financiado '><strong><span class='letra-escura'>33%</span> financiado</strong></div>
 				<div id='barra-container'>
-					<div id='barra' class='barra-33'></div>
+					<div id='barra' style="width: 33%"></div>
 				</div>
 			</div>
 			<div id='info-container'>
@@ -87,7 +87,7 @@
 				</div>
 				<div class='financiado '><strong><span class='letra-escura'>10%</span> financiado</strong></div>
 				<div id='barra-container'>
-					<div id='barra' class='barra-10'></div>
+					<div id='barra' style="width: 10%"></div>
 				</div>
 			</div>
 			<div id='info-container'>
@@ -115,7 +115,7 @@
 				</div>
 				<div class='financiado '><strong><span class='letra-escura'>90%</span> financiado</strong></div>
 				<div id='barra-container'>
-					<div id='barra' class='barra-90'></div>
+					<div id='barra' style="width: 90%"></div>
 				</div>
 			</div>
 			<div id='info-container'>
