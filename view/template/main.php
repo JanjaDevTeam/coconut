@@ -12,7 +12,7 @@
 
 <body>
 <div id='top-borda' class='container-100'></div>
-<div class='container-90'>
+<div class='container-80'>
 	
 	<div id='logo-menu'>
 		<div id='logo'class='col-1-3 bbox'><a href='index.php'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></a></div>
