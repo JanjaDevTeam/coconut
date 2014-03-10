@@ -25,7 +25,7 @@ if(isset($_GET['code'])) {
 			$user->setNome($fbfullname);
 			$user->setEmail($fbemail);
 			$user->setFbuser($_SESSION['fb']['user']);
-			$user->setLevel(1);
+			$user->setLevel(2);
 			
 			$user = $db->saveUser($user);
 			

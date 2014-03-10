@@ -24,7 +24,7 @@ class User {
 		$this->email = $email;
 	}
 	public function setSenha($senha) {
-		$this->password = md5(trim($senha));
+		$this->senha = md5(trim($senha));
 	}
 	public function setLevel($level) {
 		$this->level = $level;

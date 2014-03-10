@@ -13,9 +13,9 @@ if(isset($_POST['token']) && $_POST['token'] == 'c6dac7f7fb5c8203d2abbceee452e30
 	$senha2   = $_POST['senha2'];
 	
 	$user = new User;
-	$user->setName($fullname);
+	$user->setNome($fullname);
 	$user->setEmail($email);
-	$user->setPassword($senha);
+	$user->setSenha($senha);
 	$user->setLevel(2);
 	
 	Janja::debug($user);
