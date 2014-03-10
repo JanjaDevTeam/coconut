@@ -22,8 +22,9 @@ CREATE TABLE user_level (
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
 	nome CHAR(64) NOT NULL,
-	email CHAR(16) NOT NULL,
-	senha CHAR(32) NOT NULL,
+	email CHAR(48) NOT NULL,
+	senha CHAR(32) NULL,
+	fbuser CHAR(32) NULL,
     level INT NOT NULL,
     ativo INT(1) NOT NULL,
 	PRIMARY KEY (id),

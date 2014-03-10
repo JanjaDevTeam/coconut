@@ -22,21 +22,22 @@ class Database extends PDO {
 	# user
 	public function saveUser($user) {
 		$id       = $user->getId();
-		$name     = $user->getName();
+		$nome     = $user->getNome();
 		$email    = $user->getEmail();
-		$password = $user->getPassword();
+		$senha    = $user->getSenha();
 		$level    = $user->getLevel();
+		$fbuser   = $user->getFbuser();
 		
 		
 		if (!isset($id)) {
-			$sql = "INSERT INTO user (name, email, password, level) 
-			VALUES ('$name', '$email', '$password', $level)";
+			$sql = "INSERT INTO user (nome, email, senha, fbuser, level, ativo) 
+			VALUES ('$nome', '$email', '$senha', '$fbuser', $level, 0)";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
 		} else {
-			$sql = "UPDATE user SET name='$name', email='$email', level=$level 
+			$sql = "UPDATE user SET nome='$nome', email='$email', level=$level, fbuser='$fbuser' 
 			WHERE id = " . $id;
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
@@ -44,8 +45,10 @@ class Database extends PDO {
 		return $user;
 	}
 	
+	
+	
 	public function loadUser($id) {
-		$sql = "SELECT name, email, password, level FROM user 
+		$sql = "SELECT nome, email, fbuser, senha, level, ativo FROM user 
 		WHERE id = " . $id;
 		$stmt = $this->prepare($sql);
 		$stmt->execute();
@@ -53,11 +56,28 @@ class Database extends PDO {
 		
 		$user = new User;
 		$user->setId($id);
-		$user->setName($result[0]['name']);
+		$user->setNome($result[0]['nome']);
 		$user->setEmail($result[0]['email']);
 		$user->setLevel($result[0]['level']);
+		$user->setAtivo($result[0]['ativo']);
+		$user->setFbuser($result[0]['fbuser']);
 		
 		return $user;
+	}
+	
+	public function getUserByFbEmail($email) {
+		$sql = "SELECT id FROM user WHERE email = '$email'";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		if (sizeof($result) > 0) {
+			$id = $result[0]['id'];
+			$user = $this->loadUser($id);
+			return $user;
+			
+		}
+		return False;
 	}
 	
 	public function trocarSenha($user) {
@@ -67,6 +87,23 @@ class Database extends PDO {
 		$stmt = $this->prepare($sql);
 		$stmt->execute();
 		return $user;
+	}
+	
+	######### LOGAR #############
+	public function getUserByFormLogin($email, $senha) {
+		$senha = md5(addslashes(trim($senha)));
+		$sql = "SELECT id FROM user WHERE email='$email' AND senha='$senha'";
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		if (sizeof($result) == 0) { 
+			return False; 
+		}else {
+			$id = $result['0']['id'];
+			$user = $this->loadUser($id);
+			return $user;
+		}		
 	}
 	
 	###### PROJETOS #######
