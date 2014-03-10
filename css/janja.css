@@ -26,6 +26,11 @@
 	margin: 0 auto;
 }
 
+.container-50 {
+	width: 60%;
+	margin: 0 auto;
+}
+
 h1, h2, h3, h4 {
 	margin: 0;
 }
@@ -53,6 +58,16 @@ h1, h2, h3, h4 {
 
 .col-2-3 {
 	width: 66.67%;
+	float: left;
+}
+
+.col-1-6 {
+	width: 15%;
+	float: left;
+}
+
+.col-5-6 {
+	width: 85%;
 	float: left;
 }
 
@@ -143,6 +158,10 @@ h1, h2, h3, h4 {
 	padding: 2%;
 }
 
+.pad-2-h {
+	padding: 0 2%;
+}
+
 .pad-2-v {
 	padding: 2% 0;
 }
@@ -166,17 +185,41 @@ img {
 
 
 
-
-.form input[type="text"], .form input[type="email"] {
-	width: 100%;
-	border: 1px solid grey;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	margin: 1% 0 2% 0;
+.form-stacked fieldset {
+	border: 0;
 }
 
-.form input[type="submit"] {
-	margin: 2% 0;
+.form-stacked label { 
+	display: block;
+	margin: 3% 0 2% 0;
 }
 
+.form-stacked legend{
+	display:block;
+	width:100%;
+	padding:1% 0;
+	margin-bottom:.3em;
+	color:#333;
+	border-bottom:1px solid #e5e5e5;
+}
+
+.form-stacked input[type=text], .form-stacked input[type=email], .form-stacked input[type=password] {
+	display: block;
+	padding: 1% 2%;
+	width: 95.5%
+}
+
+
+.form-stacked button{
+	margin: 5% 0;
+	background-color: #FF670D;
+	color: #FFF;
+	border: none;
+	padding: 2%;
+	
+}
+
+.img-auto {
+	width: auto;
+	height: auto;
+}

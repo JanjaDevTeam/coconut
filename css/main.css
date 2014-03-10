@@ -53,6 +53,11 @@ hr {
 	
 }
 
+#menu ul li.foto{
+	
+}
+
+
 #menu ul li.selecionado {
 	background-color: #FF670D;
 	color: #FFF;
@@ -235,4 +240,32 @@ overflow: auto;
 
 .bg-footer {
 	background-color: #D4D5CF;
+}
+
+/*  LOGIN */
+.img-fb {
+	width: 25%;
+	margin: 3dfsfwerwer% 37.5%;
+}
+
+.fb-pic {
+	width: 40%;
+	margin-top:42px;
+	height: auto;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.login {
+	background-color: #EEF2EA;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin-bottom: 5%;
+	border: 1px solid grey;
+}
+
+.login a {
+	text-decoration: none;
 }

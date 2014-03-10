@@ -21,10 +21,11 @@ CREATE TABLE user_level (
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
-	name CHAR(64) NOT NULL,
+	nome CHAR(64) NOT NULL,
 	email CHAR(16) NOT NULL,
-	password CHAR(32) NOT NULL,
+	senha CHAR(32) NOT NULL,
     level INT NOT NULL,
+    ativo INT(1) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (level) REFERENCES user_level(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
