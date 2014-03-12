@@ -8,6 +8,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<link rel="stylesheet" type="text/css" href="css/janja.css"/>
+	<script src="lib/janja.js"></script>
 </head>
 
 <body>
@@ -19,13 +20,14 @@
 		<!-- main menu -->
 		<?php Janja::loadContent('main_menu', $data); ?>
 	</div>
-
+	<div id='principal'>
 	<!-- content -->
 	<?php
 	if (isset($content) and $content != '') {
 		Janja::loadContent($content, $data);
 	}
 	?>
+	</div>
 	
 </div>
 

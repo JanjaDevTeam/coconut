@@ -31,13 +31,16 @@ CREATE TABLE user (
 	FOREIGN KEY (level) REFERENCES user_level(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
-CREATE TABLE recuperar_senha (
+
+# tipo 0: ativacao, 1:trocar_senha
+CREATE TABLE ativacao (
 	id INT NOT NULL AUTO_INCREMENT,
 	id_user INT NOT NULL,
-	tolken CHAR(32),
-	data_registro DATETIME,
+	token CHAR(32),
+	data_registro TIMESTAMP NOT NULL DEFAULT NOW(),
+	tipo INT(1) NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE RESTRICT
+	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 

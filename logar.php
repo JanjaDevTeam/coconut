@@ -13,34 +13,19 @@ if(isset($_GET['code'])) {
 		$_SESSION['fb']['fbfullname'] = $fbfullname;
 		$_SESSION['fb']['fbemail'] = $fbemail;
 		$_SESSION['fb']['user'] = $user;
-		$_SESSION['logado'] = True;
+		$_SESSION['logado'] = False;
 		
 		
 		$db = new Database();
 		$user = $db->getUserByFbEmail($fbemail);
 		if(!is_object($user)) {
-			$fbuser = $user;
-			
-			$user = new User();
-			$user->setNome($fbfullname);
-			$user->setEmail($fbemail);
-			$user->setFbuser($_SESSION['fb']['user']);
-			$user->setLevel(2);
-			
-			$user = $db->saveUser($user);
+			# encaminha para completar o cadastro
+			header('location: completar_cadastro.php');
 			
 		} else {
-			// user é objeto usuário
-			$fbuser = $user->getFbuser();
-			if ($fbuser == '') {
-				$user->setFbuser($_SESSION['fb']['user']);
-				$user = $db->saveUser($user);
-			}
-		
+			$_SESSION['logado'] = True;
+			Header('Location: index.php');
 		}
-		
-		Header('Location: index.php');
-		
 		
 	}
 }

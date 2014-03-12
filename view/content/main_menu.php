@@ -39,11 +39,11 @@
 			<?php if (isset($_SESSION['logado'])) { ?></div><? } ?>
 			<?php if (isset($_SESSION['logado'])) { ?><div class='col-1-6 text-c'><?}?>
 			<?php if (isset($_SESSION['fb']['user'])) { ?>
-			<a href='#'><img src="https://graph.facebook.com/<?= $_SESSION['fb']['user'] ?>/picture" title='<?=$_SESSION['fb']['fbfullname']?>' class='fb-pic'></a>
+			<a href='perfil.php'><img src="https://graph.facebook.com/<?= $_SESSION['fb']['user'] ?>/picture" title='<?=$_SESSION['fb']['fbfullname']?>' class='fb-pic'></a>
 			<?php } ?>
 			
 			<?php if (isset($_SESSION['logado']) and isset($_SESSION['user']['id'])) { ?>
-			<a href='#'><img src="img/user.jpg" title='<?=$_SESSION['user']['nome']?>' class='fb-pic'></a>
+			<a href='perfil.php'><img src="img/user.jpg" title='<?=$_SESSION['user']['nome']?>' class='fb-pic'></a>
 			<?php } ?>
 			
 			

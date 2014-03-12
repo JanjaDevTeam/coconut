@@ -70,6 +70,10 @@ hr {
 
 #menu a:hover{ color: #323232;}
 
+#principal {
+	min-height: 300px;
+}
+
 .destaque-img {
 	width: 100%;
 	height: auto;
@@ -257,6 +261,12 @@ overflow: auto;
 	-webkit-border-radius: 100%;
 }
 
+.perfil-pic {
+	
+	width: 50%;
+	height: 70%;
+}
+
 .login {
 	background-color: #EEF2EA;
 	border-radius: 10px;
@@ -268,4 +278,10 @@ overflow: auto;
 
 .login a {
 	text-decoration: none;
+}
+
+/* PERFIL */
+.cell-cinza {
+	color: grey;
+	min-width: 100px;
 }

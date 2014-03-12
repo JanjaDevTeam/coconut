@@ -20,6 +20,7 @@ $_SESSION['user']['email']  = $user->getEmail();
 $_SESSION['user']['nome']   = $user->getNome();
 $_SESSION['user']['id']     = $user->getId();
 $_SESSION['user']['fbuser'] = $user->getFbuser();
+$_SESSION['user']['ativo']  = $user->getAtivo();
 $_SESSION['logado'] = True;
 
 header('location: index.php');

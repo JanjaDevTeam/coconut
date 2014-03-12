@@ -27,6 +27,7 @@ class Database extends PDO {
 		$senha    = $user->getSenha();
 		$level    = $user->getLevel();
 		$fbuser   = $user->getFbuser();
+		$ativo    = $user->getAtivo();
 		
 		
 		if (!isset($id)) {
@@ -36,13 +37,41 @@ class Database extends PDO {
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
+			$user->setAtivo(0);
 		} else {
-			$sql = "UPDATE user SET nome='$nome', email='$email', level=$level, fbuser='$fbuser' 
+			$sql = "UPDATE user SET nome='$nome', email='$email', level=$level, fbuser='$fbuser', ativo='$ativo' 
 			WHERE id = " . $id;
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 		}
 		return $user;
+	}
+
+	public function setAtivacao($id_user, $token, $tipo) {
+		# tipo 0: ativacao, 1:trocar_senha
+		$sql = "INSERT INTO ativacao (id_user, token, tipo) 
+		VALUES ($id_user, '$token', $tipo)";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return True;
+	}
+
+	public function getAtivacao($token) {
+		$sql = "SELECT id, id_user, token, data_registro FROM ativacao WHERE token = '$token'";
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public function apagaToken($id) {
+		$sql = "DELETE FROM ativacao WHERE id = " . $id;
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return True;
 	}
 	
 	

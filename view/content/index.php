@@ -131,6 +131,8 @@
 	</div>
 </div>
 <div id='popular'class='container-100 debug'>
+
+	<!--
 	<div class='container-80'>
 
 		<div id='concluidos' class='col-1'>
@@ -161,7 +163,7 @@
 		<div id='busca-principal'class='col-1-3 text-c bbox border-left'>
 		
 		
-		<!-- busca -->
+		
 		<form action='#' method='post'>
 			<input type="text" name="busca" class='bbox'/>
 		</form>
@@ -174,7 +176,8 @@
 				<li>categoria</li>
 			</ul>
 		</div>
-		<!-- /busca -->
+		
 		
 		</div>
 	</div>
+	-->
