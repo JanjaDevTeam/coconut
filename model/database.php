@@ -21,63 +21,38 @@ class Database extends PDO {
 	
 	# user
 	public function saveUser($user) {
-		$id       = $user->getId();
-		$nome     = $user->getNome();
-		$email    = $user->getEmail();
-		$senha    = $user->getSenha();
-		$level    = $user->getLevel();
-		$fbuser   = $user->getFbuser();
-		$ativo    = $user->getAtivo();
+		$id           = $user->getId();
+		$fbid         = $user->getFbid();
+		$fbuname      = $user->getFbuname();
+		$fbfullname   = $user->getFbfullname();
+		$fbemail      = $user->getFbemail();
+		$ativo        = $user->getAtivo();
+		$dataRegistro = $user->getDataRegistro();
+		$dataAcesso   = $user->getDataAcesso();
 		
 		
 		if (!isset($id)) {
-			$sql = "INSERT INTO user (nome, email, senha, fbuser, level, ativo) 
-			VALUES ('$nome', '$email', '$senha', '$fbuser', $level, 0)";
+			$sql = "INSERT INTO user (fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso) 
+			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', $ativo, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
 			$user->setAtivo(0);
 		} else {
-			$sql = "UPDATE user SET nome='$nome', email='$email', level=$level, fbuser='$fbuser', ativo='$ativo' 
+			$sql = "UPDATE user SET fbuname='$fbuname', fbfullname='$fbfullname', fbemail='$fbemail', 
+			ativo=$ativo, dataRegistro='$dataRegistro', dataAcesso='$dataAcesso'   
 			WHERE id = " . $id;
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 		}
 		return $user;
 	}
-
-	public function setAtivacao($id_user, $token, $tipo) {
-		# tipo 0: ativacao, 1:trocar_senha
-		$sql = "INSERT INTO ativacao (id_user, token, tipo) 
-		VALUES ($id_user, '$token', $tipo)";
-		$stmt = $this->prepare($sql);
-		$result = $stmt->execute();
-
-		return True;
-	}
-
-	public function getAtivacao($token) {
-		$sql = "SELECT id, id_user, token, data_registro FROM ativacao WHERE token = '$token'";
-		$stmt = $this->prepare($sql);
-		$stmt->execute();
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		return $result;
-	}
-
-	public function apagaToken($id) {
-		$sql = "DELETE FROM ativacao WHERE id = " . $id;
-		$stmt = $this->prepare($sql);
-		$result = $stmt->execute();
-
-		return True;
-	}
 	
 	
 	
 	public function loadUser($id) {
-		$sql = "SELECT nome, email, fbuser, senha, level, ativo FROM user 
+		$sql = "SELECT fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso FROM user 
 		WHERE id = " . $id;
 		$stmt = $this->prepare($sql);
 		$stmt->execute();
@@ -85,17 +60,19 @@ class Database extends PDO {
 		
 		$user = new User;
 		$user->setId($id);
-		$user->setNome($result[0]['nome']);
-		$user->setEmail($result[0]['email']);
-		$user->setLevel($result[0]['level']);
+		$user->setFbid($result[0]['fbid']);
+		$user->setFbuname($result[0]['fbuname']);
+		$user->setFbfullname($result[0]['fbfullname']);
+		$user->setFbemail($result[0]['fbemail']);
 		$user->setAtivo($result[0]['ativo']);
-		$user->setFbuser($result[0]['fbuser']);
+		$user->setDataRegistro($result[0]['dataRegistro']);
+		$user->setDataAcesso($result[0]['dataAcesso']);
 		
 		return $user;
 	}
 	
-	public function getUserByFbEmail($email) {
-		$sql = "SELECT id FROM user WHERE email = '$email'";
+	public function getUserByFbEmail($fbemail) {
+		$sql = "SELECT id FROM user WHERE fbemail = '$fbemail'";
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -109,31 +86,6 @@ class Database extends PDO {
 		return False;
 	}
 	
-	public function trocarSenha($user) {
-		$id = $user->getId();
-		$password = $user->getPassword();
-		$sql = "UPDATE user SET password='$password' WHERE id = $id";
-		$stmt = $this->prepare($sql);
-		$stmt->execute();
-		return $user;
-	}
-	
-	######### LOGAR #############
-	public function getUserByFormLogin($email, $senha) {
-		$senha = md5(addslashes(trim($senha)));
-		$sql = "SELECT id FROM user WHERE email='$email' AND senha='$senha'";
-		$stmt = $this->prepare($sql);
-		$stmt->execute();
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		
-		if (sizeof($result) == 0) { 
-			return False; 
-		}else {
-			$id = $result['0']['id'];
-			$user = $this->loadUser($id);
-			return $user;
-		}		
-	}
 	
 	###### PROJETOS #######
 	public function getCotasByProject($id) {

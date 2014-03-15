@@ -2,61 +2,68 @@
 class User {
 	
 	private $id;
-	private $nome; //fullname
-	private $email;
-	private $senha;
-	private $fbuser;
-	private $level;
+	private $fbid;
+	private $fbuname;
+	private $fbfullname;
+	private $fbemail;
 	private $ativo;
+	private $dataRegistro;
+	private $dataAcesso;
 	
-	public function __construct() {
-		//echo "Hello user\n";
-	}
 	
 	# setters
 	public function setId($id) {
 		$this->id = $id;
 	}
-	public function setNome($nome) {
-		$this->nome = $nome;
+	public function setFbid($fbid) {
+		$this->fbid = $fbid;
 	}
-	public function setEmail($email) {
-		$this->email = $email;
+	public function setFbuname($fbuname) {
+		$this->fbuname = $fbuname;
 	}
-	public function setSenha($senha) {
-		$this->senha = md5(trim($senha));
+	public function setFbfullname($fbfullname) {
+		$this->fbfullname = $fbfullname;
 	}
-	public function setLevel($level) {
-		$this->level = $level;
-	}
-	public function setFbuser($fbuser) {
-		$this->fbuser = $fbuser;
+	public function setFbemail($fbemail) {
+		$this->fbemail = $fbemail;
 	}
 	public function setAtivo($ativo) {
 		$this->ativo = $ativo;
 	}
+	public function setDataRegistro($data) {
+		$this->dataRegistro = $data;
+	}
+	public function setDataAcesso($data) {
+		$this->dataAcesso = $data;
+	}
+
 	
+
 	# getters
 	public function getId() {
 		return $this->id;
 	}
-	public function getNome() {
-		return $this->nome;
+	public function getFbid() {
+		return $this->fbid;
 	}
-	public function getEmail() {
-		return $this->email;
+	public function getFbuname() {
+		return $this->fbuname;
 	}
-	public function getSenha() {
-		return $this->senha;
+	public function getFbfullname() {
+		return $this->fbfullname;
 	}
-	public function getLevel() {
-		return $this->level;
-	}
-	public function getFbuser() {
-		return $this->fbuser;
+	public function getFbemail() {
+		return $this->fbemail;
 	}
 	public function getAtivo() {
 		return $this->ativo;
 	}
+	public function getDataRegistro() {
+		return $this->dataRegistro;
+	}
+	public function getDataAcesso() {
+		return $this->dataAcesso;
+	}
+
 }
 ?>

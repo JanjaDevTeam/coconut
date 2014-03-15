@@ -6,6 +6,7 @@ CREATE DATABASE Coconut DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE Coconut;
 
+
 CREATE TABLE log (
 	id INT NOT NULL AUTO_INCREMENT,
     tag CHAR(16) NOT NULL,
@@ -13,35 +14,20 @@ CREATE TABLE log (
     PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
-CREATE TABLE user_level (
-	id INT NOT NULL AUTO_INCREMENT,
-    level CHAR(32) NOT NULL,
-	PRIMARY KEY (id)
-)ENGINE=InnoDB;
+
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
-	nome CHAR(64) NOT NULL,
-	email CHAR(48) NOT NULL,
-	senha CHAR(32) NULL,
-	fbuser CHAR(32) NULL,
-    level INT NOT NULL,
-    ativo INT(1) NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (level) REFERENCES user_level(id) ON DELETE RESTRICT
+	fbid INT NOT NULL,
+	fbuname CHAR(64) NOT NULL,
+	fbfullname CHAR(64) NOT NULL,
+	fbemail CHAR(64) NOT NULL,
+	ativo INT(1) NOT NULL,
+	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
+	dataAcesso TIMESTAMP NOT NULL,
+	PRIMARY KEY(id)
 )ENGINE=InnoDB;
 
-
-# tipo 0: ativacao, 1:trocar_senha
-CREATE TABLE ativacao (
-	id INT NOT NULL AUTO_INCREMENT,
-	id_user INT NOT NULL,
-	token CHAR(32),
-	data_registro TIMESTAMP NOT NULL DEFAULT NOW(),
-	tipo INT(1) NOT NULL,
-	PRIMARY KEY(id),
-	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE CASCADE
-)ENGINE=InnoDB;
 
 
 CREATE TABLE categoria (
@@ -49,6 +35,7 @@ CREATE TABLE categoria (
 	categoria CHAR(32),
 	PRIMARY KEY(id)
 )ENGINE=InnoDB;
+
 
 CREATE TABLE projeto (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -82,8 +69,3 @@ CREATE TABLE user_cotas (
 	FOREIGN KEY (id_cotas) REFERENCES cotas(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
-
-# INSERTS
-INSERT INTO user_level (level) VALUES ('Administrator');
-INSERT INTO user_level (level) VALUES ('Common');
-INSERT INTO user_level (level) VALUES ('Developer');
