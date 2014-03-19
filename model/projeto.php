@@ -5,6 +5,7 @@ class Projeto {
 	private $idUser; # proponente FK user.id
 	private $idCategoria;  # FK
 	private $categoria;
+	private $idStatus; # FK
 	private $nome;
 	private $descricao;
 	private $frase;
@@ -15,7 +16,7 @@ class Projeto {
 	private $ativo;
 
 	public function __construct() {
-		echo 'Projeto - Construtor.';
+		# echo 'Projeto - Construtor.';
 	}
 
 
@@ -31,7 +32,10 @@ class Projeto {
 		$this->idCategoria = $idCategoria;
 	}
 	public function setCategoria($cat) {
-		$this->categoria = $caat;
+		$this->categoria = $cat;
+	}
+	public function setIdStatus($idStatus) {
+		$this->idStatus = $idStatus;
 	}
 	public function setNome ($nome) {
 		$this->nome = $nome;
@@ -71,6 +75,9 @@ class Projeto {
 	}
 	public function getCategoria() {
 		return $this->categoria;
+	}
+	public function getIdStatus() {
+		return $this->idStatus;
 	}
 	public function getNome() {
 		return $this->nome;

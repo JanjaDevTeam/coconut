@@ -36,17 +36,30 @@ CREATE TABLE categoria (
 	PRIMARY KEY(id)
 )ENGINE=InnoDB;
 
+CREATE TABLE projeto_status(
+	id INT NOT NULL AUTO_INCREMENT,
+	status CHAR(64) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB;
+
 
 CREATE TABLE projeto (
 	id INT NOT NULL AUTO_INCREMENT,
-	id_user INT NOT NULL,
-	id_categoria INT NOT NULL,
-	data_registro DATETIME,
+	idUser INT NOT NULL,
+	idCategoria INT NOT NULL,
+	idStatus INT NOT NULL,
+	nome VARCHAR(256) NOT NULL,
+	descricao TEXT NOT NULL,
+	frase VARCHAR(140) NOT NULL,
 	valor DECIMAL(10,2) NOT NULL,
-	estado CHAR(1) NOT NULL,
-	PRIMARY KEY(id),
-	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE RESTRICT,
-	FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE RESTRICT
+	prazo INT NOT NULL,
+	video VARCHAR(256) NOT NULL,
+	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
+	ativo INT(1) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE RESTRICT,
+	FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON DELETE RESTRICT,
+	FOREIGN KEY (idStatus) REFERENCES projeto_status(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
 CREATE TABLE cotas (
