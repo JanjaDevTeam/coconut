@@ -4,5 +4,5 @@ session_start();
 
 $data['selecionado'] = 'enviar';
 
-Janja::loadTemplate('main', 'index', $data);
+Janja::loadTemplate('main', 'projeto/enviar_projeto', $data);
 ?>

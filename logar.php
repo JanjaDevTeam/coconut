@@ -52,6 +52,8 @@ if(isset($_GET['code'])) {
 
 			$user = $db->saveUser($user);
 
+			// $carteiro->boasVindas($user);
+
 		}
 		header('location: index.php');
 		

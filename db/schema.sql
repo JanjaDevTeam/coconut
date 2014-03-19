@@ -39,13 +39,13 @@ CREATE TABLE categoria (
 
 CREATE TABLE projeto (
 	id INT NOT NULL AUTO_INCREMENT,
-	proponente INT NOT NULL,
+	id_user INT NOT NULL,
 	id_categoria INT NOT NULL,
 	data_registro DATETIME,
 	valor DECIMAL(10,2) NOT NULL,
 	estado CHAR(1) NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY (proponente) REFERENCES user(id) ON DELETE RESTRICT,
+	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE RESTRICT,
 	FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
@@ -68,4 +68,43 @@ CREATE TABLE user_cotas (
 	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE RESTRICT,
 	FOREIGN KEY (id_cotas) REFERENCES cotas(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
+
+
+# INSERTS
+INSERT INTO categoria (categoria) VALUES ('agricultura sustentável');
+INSERT INTO categoria (categoria) VALUES ('permacultura');
+INSERT INTO categoria (categoria) VALUES ('educação');
+INSERT INTO categoria (categoria) VALUES ('educação e sociabilidade');
+INSERT INTO categoria (categoria) VALUES ('energia limpa');
+INSERT INTO categoria (categoria) VALUES ('cidade e sustentabilidade');
+INSERT INTO categoria (categoria) VALUES ('gênero');
+INSERT INTO categoria (categoria) VALUES ('direitos humanos');
+INSERT INTO categoria (categoria) VALUES ('direitos animais');
+INSERT INTO categoria (categoria) VALUES ('acesso à informação');
+INSERT INTO categoria (categoria) VALUES ('economia criativa');
+INSERT INTO categoria (categoria) VALUES ('economia solidária');
+INSERT INTO categoria (categoria) VALUES ('saúde');
+INSERT INTO categoria (categoria) VALUES ('saúde primária');
+INSERT INTO categoria (categoria) VALUES ('saúde e bem estar');
+INSERT INTO categoria (categoria) VALUES ('mobilidade urbana');
+INSERT INTO categoria (categoria) VALUES ('intervenção urbana');
+INSERT INTO categoria (categoria) VALUES ('arte de rua');
+INSERT INTO categoria (categoria) VALUES ('inclusão social');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

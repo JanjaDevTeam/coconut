@@ -16,8 +16,12 @@
 			<td><?=$_SESSION['user']['fbemail']?></td>
 		</tr>
 		<tr>
-			<td class='cell-cinza'>Facebook:</td>
+			<td class='cell-cinza'>Fb Id:</td>
 			<td><?=$_SESSION['user']['fbid']?></td>
+		</tr>
+		<tr>
+			<td class='cell-cinza'>Fb User:</td>
+			<td><?=$_SESSION['user']['fbuname']?></td>
 		</tr>
 	</table>
 </div>
