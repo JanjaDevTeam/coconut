@@ -12,8 +12,9 @@
 </head>
 
 <body>
+<div class='wrapper bbox'>
 <div id='top-borda' class='container-100'></div>
-<div class='container-80'>
+<div class='container-80 principal'>
 	
 	<div id='logo-menu'>
 		<div id='logo'class='col-1-3 bbox'><a href='index.php'><img src='img/solucionatica.png' class='logo' alt='Solucionática'/></a></div>
@@ -31,11 +32,9 @@
 	
 </div>
 
-<div class='container-100 bg-footer clear-b'>
-	
-	
+<div id='footer' class='container-100 bg-footer clear-b bbox'>
 	<div class='container-80'>
-		<div id='footer' class='text-c bbox'>
+		<div class='text-c bbox'>
 			<img src='img/solucionatica-footer.png' alt='Solucionática'/>
 			<ul>
 				<li>COMO FUNCIONA?</li>
@@ -46,9 +45,9 @@
 			</ul>
 		</div>
 		
-		
 	</div>
-	
 </div>
+</div>
+
 </body>
 </html>

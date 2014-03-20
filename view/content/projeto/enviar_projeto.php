@@ -17,8 +17,8 @@
 	ampla campanha de captação de recursos. </p>
 
 <h4>E que tipos de projetos a Solucionática Projetos aceita?</h4>
-<p>Nós só aceitamos projetos que se proponham a eliminar ou reduzir [1] uso insustentável dos recursos 
-	naturais e [2] condições de vida degradantes ou limitantes do pleno 
+<p>Nós só aceitamos projetos que se proponham a eliminar ou reduzir uso insustentável dos recursos 
+	naturais e condições de vida degradantes ou limitantes do pleno 
 	desenvolvimento das capacidades intelectuais e motoras do ser humando. </p>
 
 <p><strong>Não financiamos empresas ou programas</strong>, apenas projetos. Se você precisa capital para começar uma empresa ou se precisa levantar fundos para manter um programa, nenhum problema, 
@@ -46,4 +46,3 @@
 		<button>Quero enviar meu projeto</button>
 	</form>
 </div>
-<br/><br/>

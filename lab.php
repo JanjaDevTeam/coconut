@@ -3,7 +3,7 @@ require_once('controller/controller_projeto.php');
 require_once('model/projeto.php');
 require_once('lib/janja.php');
 
-$zord = new ControllerProjeto;
+/*$zord = new ControllerProjeto;
 //$zord->Perfil(1);
 
 $projeto = new Projeto;
@@ -23,5 +23,9 @@ $projeto->setAtivo(1);
 
 
 Janja::Debug($projeto);
+*/
+$data['selecionado'] = '';
+
+Janja::loadTemplate('main', 'blank', $data);
 
 ?>
