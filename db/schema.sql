@@ -47,7 +47,6 @@ CREATE TABLE projeto (
 	id INT NOT NULL AUTO_INCREMENT,
 	idUser INT NOT NULL,
 	idCategoria INT NOT NULL,
-	idStatus INT NOT NULL,
 	nome VARCHAR(256) NOT NULL,
 	descricao TEXT NOT NULL,
 	frase VARCHAR(140) NOT NULL,
@@ -58,8 +57,7 @@ CREATE TABLE projeto (
 	ativo INT(1) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE RESTRICT,
-	FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON DELETE RESTRICT,
-	FOREIGN KEY (idStatus) REFERENCES projeto_status(id) ON DELETE RESTRICT
+	FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
 CREATE TABLE cotas (

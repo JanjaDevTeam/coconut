@@ -1,31 +1,24 @@
 <?php
-require_once('controller/controller_projeto.php');
+require_once('model/database.php');
 require_once('model/projeto.php');
 require_once('lib/janja.php');
 
-/*$zord = new ControllerProjeto;
-//$zord->Perfil(1);
-
+$db = new Database;
 $projeto = new Projeto;
 
-$projeto->setId(1);
-$projeto->setIdUser(2);
-$projeto->setIdCategoria(3);
-$projeto->setcategoria('finalizado');
+$projeto->setIdUser(1);
+$projeto->setIdCategoria(1);
 $projeto->setNome('Ceilondon Project');
-$projeto->setDescricao('Legalization WorldWide');
+$projeto->setDescricao('Janja Description');
 $projeto->setFrase('Janja time.');
 $projeto->setValor(15500.90);
 $projeto->setPrazo(30);
-$projeto->setVideo('http://youtube.com');
-$projeto->setDataRegistro(Date('d/m/Y'));
+$projeto->setVideo('http://www.youtube.com/watch?v=5BQHq4s_qHo');
 $projeto->setAtivo(1);
+
+$db->saveProjeto($projeto);
 
 
 Janja::Debug($projeto);
-*/
-$data['selecionado'] = '';
-
-Janja::loadTemplate('main', 'blank', $data);
 
 ?>

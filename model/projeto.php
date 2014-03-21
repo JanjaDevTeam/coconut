@@ -5,7 +5,6 @@ class Projeto {
 	private $idUser; # proponente FK user.id
 	private $idCategoria;  # FK
 	private $categoria;
-	private $idStatus; # FK
 	private $nome;
 	private $descricao;
 	private $frase;
@@ -16,7 +15,18 @@ class Projeto {
 	private $ativo;
 
 	public function __construct() {
-		# echo 'Projeto - Construtor.';
+
+		/*
+		$this->setIdUser(1);
+		$this->setNome('Projeto aleatório');
+		$this->setCategoria(1);
+		$this->setDescricao('Em Desenvolvimento');
+		$this->setFrase('Toca telefone, toca telefone.');
+		$this->setValor('12500.50');
+		$this->setPrazo(45);
+		$this->setVideo('http://www.youtube.com/watch?v=5BQHq4s_qHo');
+		$this->setativo(1);
+		*/
 	}
 
 
@@ -26,7 +36,7 @@ class Projeto {
 		$this->id = $id;
 	} 
 	public function setIdUser($idUser) {
-		$this->id_user = $idUser;
+		$this->idUser = $idUser;
 	}
 	public function setIdCategoria($idCategoria) {
 		$this->idCategoria = $idCategoria;

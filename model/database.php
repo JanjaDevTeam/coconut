@@ -88,6 +88,54 @@ class Database extends PDO {
 	
 	
 	###### PROJETOS #######
+	public function getProjeto {
+
+		// implementar
+		$sql = "";
+
+	}
+
+	public function saveProjeto($projeto) {
+		$id = $projeto->getId();
+		$idUser = $projeto->getIdUser();
+		$idCategoria = $projeto->getIdCategoria();
+		$descricao = $projeto->getDescricao();
+		$nome = $projeto->getNome();
+		$descricao = $projeto->getDescricao();
+		$frase = $projeto->getFrase();
+		$valor = $projeto->getValor();
+		$prazo = $projeto->getPrazo();
+		$video = $projeto->getVideo();
+		$ativo = $projeto->getAtivo();
+
+		if ($id != NULL) {
+			
+
+			$sql = "INSERT INTO projeto 
+			(idUser, idCategoria, nome, descricao, frase, valor, prazo, video, ativo) 
+			VALUES ($idUser, $idCategoria, 'nome', '$descricao', '$frase', '$valor', $prazo, '$video', $ativo)";
+
+			print $sql;
+
+			$stmt = $this->prepare($sql);
+			$result = $stmt->execute();
+		} else {
+
+			// testar após o load
+
+			$sql = "UPDATE projeto SET 
+			nome='$nome', descricao='$descricao', frase='$frase', valor=$valor, prazo='$prazo', video='$video', ativo=$ativo 
+			WHERE id = $id";
+
+			return;
+
+		}
+
+
+	}
+
+
+	/*
 	public function getCotasByProject($id) {
 		$sql = "SELECT id, valor, descricao, quantidade FROM cotas WHERE id_projeto = $id";
 		$stmt = $this->prepare($sql);
@@ -108,7 +156,7 @@ class Database extends PDO {
 		return $cotas;
 	
 	}
-	
+	*/
 	
 }
 ?>
