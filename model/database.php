@@ -31,7 +31,7 @@ class Database extends PDO {
 		$dataAcesso   = $user->getDataAcesso();
 		
 		
-		if (!isset($id)) {
+		if (!is_int($id)) {
 			$sql = "INSERT INTO user (fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso) 
 			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', $ativo, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
@@ -91,24 +91,37 @@ class Database extends PDO {
 	public function getProjeto($id) {
 
 		// implementar
-		$sql = 'SELECT idUser, idCategoria, nome, descricao, frase, valor, prazo, video, ativo, dataRegistro 
-		FROM projeto WHERE id = ' . $id;
+		$sql = 'SELECT idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, ativo, dataRegistro, categoria 
+		FROM projeto, categoria WHERE projeto.idCategoria = categoria.id AND projeto.id = ' . $id;
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		$projeto = new Projeto;
 
+		$projeto->setId($id);
 		$projeto->setIdUser($result[0]['idUser']);
 		$projeto->setIdCategoria($result[0]['idCategoria']);
+		$projeto->setCategoria($result[0]['categoria']);
 		$projeto->setNome($result[0]['nome']);
 		$projeto->setDescricao($result[0]['descricao']);
 		$projeto->setFrase($result[0]['frase']);
 		$projeto->setValor($result[0]['valor']);
+		$projeto->setValorArrecadado($result[0]['valorArrecadado']);
 		$projeto->setPrazo($result[0]['prazo']);
 		$projeto->setVideo($result[0]['video']);
 		$projeto->setDataRegistro($result[0]['dataRegistro']);
 		$projeto->setAtivo($result[0]['ativo']);
+
+		// buscar cotas do projeto
+		$sql = 'SELECT valor, descricao, qtdTotal, qtdComprada 
+		FROM cota WHERE idProjeto = ' . $id . ' ORDER BY valor ASC';
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$projeto->setCotas($result);
+
+
 
 		return $projeto;
 
@@ -124,6 +137,7 @@ class Database extends PDO {
 		$descricao   = $projeto->getDescricao();
 		$frase = $projeto->getFrase();
 		$valor = $projeto->getValor();
+		$valorArrecadado = $projeto->getValorArrecadado();
 		$prazo = $projeto->getPrazo();
 		$video = $projeto->getVideo();
 		$ativo = $projeto->getAtivo();
@@ -131,24 +145,31 @@ class Database extends PDO {
 
 		if (!is_int($id)) {
 			
-
+			# grava o projeto no banco
 			$sql = "INSERT INTO projeto 
-			(idUser, idCategoria, nome, descricao, frase, valor, prazo, video, ativo) 
-			VALUES ($idUser, $idCategoria, 'nome', '$descricao', '$frase', '$valor', $prazo, '$video', $ativo)";
-
+			(idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, ativo) 
+			VALUES ($idUser, $idCategoria, '$nome', '$descricao', '$frase', $valor, 0,  $prazo, '$video', $ativo)";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
+			$idProjeto = $this->lastInsertId();
+
 		} else {
 
 			// testar após getProjeto
 
 			$sql = "UPDATE projeto SET 
-			nome='$nome', descricao='$descricao', frase='$frase', valor=$valor, prazo='$prazo', video='$video', ativo=$ativo 
+			idCategoria = $idCategoria, nome ='$nome', descricao='$descricao', frase='$frase', 
+			valor=$valor, valorArrecadado = $valorArrecadado, prazo='$prazo', video='$video', ativo=$ativo 
 			WHERE id = $id";
 
-			return;
+			$stmt = $this->prepare($sql);
+			$result = $stmt->execute();
 
 		}
+
+		
+
+		return True;
 
 
 	}

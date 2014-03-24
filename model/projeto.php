@@ -9,25 +9,12 @@ class Projeto {
 	private $descricao;
 	private $frase;
 	private $valor;
+	private $valorArrecadado;
 	private $prazo; # em dias
 	private $video;
 	private $dataRegistro;
 	private $ativo;
-
-	public function __construct() {
-
-		/*
-		$this->setIdUser(1);
-		$this->setNome('Projeto aleatório');
-		$this->setCategoria(1);
-		$this->setDescricao('Em Desenvolvimento');
-		$this->setFrase('Toca telefone, toca telefone.');
-		$this->setValor('12500.50');
-		$this->setPrazo(45);
-		$this->setVideo('http://www.youtube.com/watch?v=5BQHq4s_qHo');
-		$this->setativo(1);
-		*/
-	}
+	private $cotas;
 
 
 	# setters
@@ -59,6 +46,9 @@ class Projeto {
 	public function setValor($valor) {
 		$this->valor = $valor;
 	}
+	public function setValorArrecadado($valor) {
+		$this->valorArrecadado = $valor;
+	}
 	public function setPrazo($prazo) {
 		$this->prazo = $prazo;
 	}
@@ -70,6 +60,9 @@ class Projeto {
 	}
 	public function setAtivo($ativo) {
 		$this->ativo = $ativo;
+	}
+	public function setCotas($cotas) {
+		$this->cotas = $cotas;
 	}
 
 	# getters
@@ -101,6 +94,15 @@ class Projeto {
 	public function getValor() {
 		return $this->valor;
 	}
+	public function getValorArrecadado() {
+		return $this->valorArrecadado;
+	}
+
+	public function getPorcentagem() {
+		$pct = ($this->valorArrecadado / $this->valor) * 100;
+		return round($pct);
+	}
+
 	public function getPrazo() {
 		return $this->prazo;
 	}
@@ -112,6 +114,9 @@ class Projeto {
 	}
 	public function getAtivo() {
 		return $this->ativo;
+	}
+	public function getCotas() {
+		return $this->cotas;
 	}
 	 
 

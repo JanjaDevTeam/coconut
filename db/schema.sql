@@ -36,12 +36,6 @@ CREATE TABLE categoria (
 	PRIMARY KEY(id)
 )ENGINE=InnoDB;
 
-CREATE TABLE projeto_status(
-	id INT NOT NULL AUTO_INCREMENT,
-	status CHAR(64) NOT NULL,
-	PRIMARY KEY(id)
-)ENGINE=InnoDB;
-
 
 CREATE TABLE projeto (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -51,6 +45,7 @@ CREATE TABLE projeto (
 	descricao TEXT NOT NULL,
 	frase VARCHAR(140) NOT NULL,
 	valor DECIMAL(10,2) NOT NULL,
+	valorArrecadado DECIMAL(10,2) NOT NULL,
 	prazo INT NOT NULL,
 	video VARCHAR(256) NOT NULL,
 	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -60,28 +55,33 @@ CREATE TABLE projeto (
 	FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
-CREATE TABLE cotas (
+
+CREATE TABLE cota (
 	id INT NOT NULL AUTO_INCREMENT,
-	id_projeto INT NOT NULL,
+	idProjeto INT NOT NULL,
 	valor DECIMAL(10,2) NOT NULL,
 	descricao TEXT NOT NULL,
-	quantidade INT NULL,
+	qtdTotal INT NOT NULL,
+	qtdComprada INT NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY (id_projeto) REFERENCES projeto(id) ON DELETE CASCADE
+	FOREIGN KEY (idProjeto) REFERENCES projeto(id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
-CREATE TABLE user_cotas (
+CREATE TABLE user_cota (
 	id INT NOT NULL AUTO_INCREMENT,
-	id_user INT NOT NULL,
-	id_cotas INT NOT NULL,
+	idUser INT NOT NULL,
+	idCota INT NOT NULL,
 	quantidade INT NOT NULL,
+	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
 	PRIMARY KEY(id),
-	FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE RESTRICT,
-	FOREIGN KEY (id_cotas) REFERENCES cotas(id) ON DELETE RESTRICT
+	FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE RESTRICT,
+	FOREIGN KEY (idCota) REFERENCES cota(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
 
 # INSERTS
+
+
 INSERT INTO categoria (categoria) VALUES ('agricultura sustentável');
 INSERT INTO categoria (categoria) VALUES ('permacultura');
 INSERT INTO categoria (categoria) VALUES ('educação');
@@ -101,21 +101,3 @@ INSERT INTO categoria (categoria) VALUES ('mobilidade urbana');
 INSERT INTO categoria (categoria) VALUES ('intervenção urbana');
 INSERT INTO categoria (categoria) VALUES ('arte de rua');
 INSERT INTO categoria (categoria) VALUES ('inclusão social');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
