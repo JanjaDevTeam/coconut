@@ -88,40 +88,59 @@ class Database extends PDO {
 	
 	
 	###### PROJETOS #######
-	public function getProjeto {
+	public function getProjeto($id) {
 
 		// implementar
-		$sql = "";
+		$sql = 'SELECT idUser, idCategoria, nome, descricao, frase, valor, prazo, video, ativo, dataRegistro 
+		FROM projeto WHERE id = ' . $id;
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		$projeto = new Projeto;
+
+		$projeto->setIdUser($result[0]['idUser']);
+		$projeto->setIdCategoria($result[0]['idCategoria']);
+		$projeto->setNome($result[0]['nome']);
+		$projeto->setDescricao($result[0]['descricao']);
+		$projeto->setFrase($result[0]['frase']);
+		$projeto->setValor($result[0]['valor']);
+		$projeto->setPrazo($result[0]['prazo']);
+		$projeto->setVideo($result[0]['video']);
+		$projeto->setDataRegistro($result[0]['dataRegistro']);
+		$projeto->setAtivo($result[0]['ativo']);
+
+		return $projeto;
+
 
 	}
 
 	public function saveProjeto($projeto) {
-		$id = $projeto->getId();
-		$idUser = $projeto->getIdUser();
+		$id          = $projeto->getId();
+		$idUser      = $projeto->getIdUser();
 		$idCategoria = $projeto->getIdCategoria();
-		$descricao = $projeto->getDescricao();
-		$nome = $projeto->getNome();
-		$descricao = $projeto->getDescricao();
+		$descricao   = $projeto->getDescricao();
+		$nome        = $projeto->getNome();
+		$descricao   = $projeto->getDescricao();
 		$frase = $projeto->getFrase();
 		$valor = $projeto->getValor();
 		$prazo = $projeto->getPrazo();
 		$video = $projeto->getVideo();
 		$ativo = $projeto->getAtivo();
 
-		if ($id != NULL) {
+
+		if (!is_int($id)) {
 			
 
 			$sql = "INSERT INTO projeto 
 			(idUser, idCategoria, nome, descricao, frase, valor, prazo, video, ativo) 
 			VALUES ($idUser, $idCategoria, 'nome', '$descricao', '$frase', '$valor', $prazo, '$video', $ativo)";
 
-			print $sql;
-
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 		} else {
 
-			// testar após o load
+			// testar após getProjeto
 
 			$sql = "UPDATE projeto SET 
 			nome='$nome', descricao='$descricao', frase='$frase', valor=$valor, prazo='$prazo', video='$video', ativo=$ativo 
