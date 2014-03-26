@@ -36,7 +36,7 @@ if(isset($_GET['code'])) {
 			$user->setDataRegistro($agora);
 			$user->setDataAcesso($agora);
 
-			$usr = $db->saveUser($user);
+			$user = $db->saveUser($user);
 		}else {
 			$id    = $user->getId();
 			$ativo = $user->getAtivo();

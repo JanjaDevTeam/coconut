@@ -174,6 +174,27 @@ class Database extends PDO {
 
 	}
 
+	function saveColaboracao($colaboracao) {
+
+		$idProjeto   = $colaboracao->getIdProjeto();
+		$valor       = $colaboracao->getValor();
+		$descricao   = $colaboracao->getDescricao();
+		$qtdTotal    = $colaboracao->getQtdTotal();
+		$qtdComprada = $colaboracao->getQtdComprada();
+
+		$sql = "INSERT INTO colaboracao 
+		(idProjeto, valor, descricao, qtdTotal, qtdComprada) 
+		values ($idProjeto, $valor, '$descricao', $qtdTotal, $qtdComprada)";
+
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		$id = $this->lastInsertId();
+		$colaboracao->setId($id);
+
+		return $colaboracao;
+	}
+
 
 	/*
 	public function getCotasByProject($id) {
