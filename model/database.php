@@ -31,7 +31,7 @@ class Database extends PDO {
 		$dataAcesso   = $user->getDataAcesso();
 		
 		
-		if (!is_int($id)) {
+		if ($id == null) {
 			$sql = "INSERT INTO user (fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso) 
 			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', $ativo, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
