@@ -22,6 +22,7 @@ class Database extends PDO {
 
 
 	#### USER
+
 	public function saveUser($user) {
 		$id           = $user->getId();
 		$fbid         = $user->getFbid();
@@ -35,12 +36,12 @@ class Database extends PDO {
 		
 		if ($id == null) {
 			$sql = "INSERT INTO user (fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso) 
-			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', $ativo, '$dataRegistro', '$dataAcesso')";
+			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', 1, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
-			$user->setAtivo(0);
+			$user->setAtivo(1);
 		} else {
 			$sql = "UPDATE user SET fbuname='$fbuname', fbfullname='$fbfullname', fbemail='$fbemail', 
 			ativo=$ativo, dataRegistro='$dataRegistro', dataAcesso='$dataAcesso'   

@@ -45,7 +45,6 @@ $user->setFbid(123456);
 $user->setFbuname('uteste');
 $user->setFbfullname('Usuário Teste');
 $user->setFbemail('testuser@localhost.com');
-$user->setAtivo(1);
 $user->setDataRegistro($agora);
 $user->setDataAcesso($agora);
 $user = $db->saveUser($user);
@@ -84,7 +83,7 @@ $db->saveProjeto($projeto);
 
 Janja::Debug($projeto);
 
-echo "<span style='color: red'>agregando faixas de colaboração ao projeto 1</span>";
+echo "<span style='color: red'>criando colaborações do projeto 1</span>";
 // colaboracao 1
 $colaboracao = new Colaboracao;
 $colaboracao->setIdProjeto(1);
