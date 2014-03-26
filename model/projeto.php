@@ -14,7 +14,7 @@ class Projeto {
 	private $video;
 	private $dataRegistro;
 	private $ativo;
-	private $cotas;
+	private $colaboracao;
 
 
 	# setters
@@ -61,8 +61,8 @@ class Projeto {
 	public function setAtivo($ativo) {
 		$this->ativo = $ativo;
 	}
-	public function setCotas($cotas) {
-		$this->cotas = $cotas;
+	public function setColaboracao($colaboracao) {
+		$this->colaboracao = $colaboracao;
 	}
 
 	# getters
@@ -115,8 +115,8 @@ class Projeto {
 	public function getAtivo() {
 		return $this->ativo;
 	}
-	public function getCotas() {
-		return $this->cotas;
+	public function getColaboracao() {
+		return $this->colaboracao;
 	}
 	 
 

@@ -19,7 +19,9 @@ class Database extends PDO {
 		}
 	}
 	
-	# user
+
+
+	#### USER
 	public function saveUser($user) {
 		$id           = $user->getId();
 		$fbid         = $user->getFbid();
@@ -69,6 +71,7 @@ class Database extends PDO {
 		$user->setDataAcesso($result[0]['dataAcesso']);
 		
 		return $user;
+
 	}
 	
 	public function getUserByFbEmail($fbemail) {
@@ -87,7 +90,8 @@ class Database extends PDO {
 	}
 	
 	
-	###### PROJETOS #######
+	#### PROJETO
+
 	public function getProjeto($id) {
 
 		// implementar
@@ -112,16 +116,6 @@ class Database extends PDO {
 		$projeto->setVideo($result[0]['video']);
 		$projeto->setDataRegistro($result[0]['dataRegistro']);
 		$projeto->setAtivo($result[0]['ativo']);
-
-		// buscar cotas do projeto
-		$sql = 'SELECT valor, descricao, qtdTotal, qtdComprada 
-		FROM cota WHERE idProjeto = ' . $id . ' ORDER BY valor ASC';
-		$stmt = $this->prepare($sql);
-		$result = $stmt->execute();
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		$projeto->setCotas($result);
-
-
 
 		return $projeto;
 
@@ -174,7 +168,28 @@ class Database extends PDO {
 
 	}
 
-	function saveColaboracao($colaboracao) {
+	#### COLABORAÇÃO
+
+	public function getColaboracao($id) {
+		$sql = 'SELECT idProjeto, valor, descricao, qtdTotal, qtdComprada 
+		FROM colaboracao WHERE id = ' . $id;
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		$colaboracao = new Colaboracao;
+		$colaboracao->setId($id);
+		$colaboracao->setIdProjeto($result[0]['idProjeto']);
+		$colaboracao->setValor($result[0]['valor']);
+		$colaboracao->setDescricao($result[0]['descricao']);
+		$colaboracao->setQtdTotal($result[0]['qtdTotal']);
+		$colaboracao->setQtdComprada($result[0]['qtdComprada']);
+
+		return $colaboracao;
+	}
+
+
+	public function saveColaboracao($colaboracao) {
 
 		$idProjeto   = $colaboracao->getIdProjeto();
 		$valor       = $colaboracao->getValor();
@@ -195,29 +210,37 @@ class Database extends PDO {
 		return $colaboracao;
 	}
 
-
-	/*
-	public function getCotasByProject($id) {
-		$sql = "SELECT id, valor, descricao, quantidade FROM cotas WHERE id_projeto = $id";
-		$stmt = $this->prepare($sql);
-		$stmt->execute();
-		$cotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		
-		$count = 0;
-		foreach($cotas as $cota) {
-			$sql = "SELECT SUM(quantidade) as quantidade FROM user_cotas where id_cotas=$cota[id]";
-			$stmt = $this->prepare($sql);
-			$stmt->execute();
-			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			$quantidade = $result['0']['quantidade'];
-			$cotas[$count]['vendidas'] = $quantidade;
-			$count ++;
-		}
-		
-		return $cotas;
 	
+	#### USER COLABORAÇÃO
+	function saveUserColaboracao($idUser, $idColaboracao, $quantidade) {
+		$sql = "INSERT INTO user_colaboracao 
+		(idUser, idColaboracao, quantidade) VALUES 
+		($idUser, $idColaboracao, '$quantidade')";
+
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return True;
+
 	}
-	*/
+
+	function getUserColaboracao($id) {
+		$sql = 'SELECT idUser, idColaboracao, quantidade, dataRegistro 
+		FROM user_colaboracao WHERE id = ' . $id;
+
+		$stmt  = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		$uc = new UserColaboracao;
+		$uc->setId($id);
+		$uc->setIdUser($result[0]['idUser']);
+		$uc->setIdColaboracao($result[0]['idColaboracao']);
+		$uc->setQuantidade($result[0]['quantidade']);
+		$uc->setDataRegistro($result[0]['dataRegistro']);
+
+		return $uc;
+	}
 	
 }
 ?>
