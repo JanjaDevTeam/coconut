@@ -21,7 +21,7 @@ hr {
 
 
 #top-borda {
-	background-color: #FF670D;
+	background-color: #FF670D; /* laranja: #FF670F  verde: #28B998 */
 	height: 10px;
 	width: auto;
 }
@@ -60,7 +60,7 @@ hr {
 
 
 #menu ul li.selecionado {
-	background-color: #FF670D;
+	background-color: #FF670D; /* laranja: #FF670F  verde: #28B998 */
 	color: #FFF;
 }
 
@@ -265,7 +265,7 @@ overflow: auto;
 /*  LOGIN */
 .img-fb {
 	width: 25%;
-	margin: 3dfsfwerwer% 37.5%;
+	margin: 37.5%;
 }
 
 .fb-pic {
@@ -316,4 +316,32 @@ overflow: auto;
 
 .enviar-projeto h4{
 	margin-top: 5%;
+}
+
+.projeto-grid {
+	font-size: 14px;
+	margin: 0 0 12% 0;
+	color: grey;
+	background-color: #F7F7F7;
+	/*
+	-webkit-box-shadow: 7px 7px 0px 0px rgba(204, 216, 193, 0.75);
+	-moz-box-shadow:    7px 7px 0px 0px rgba(204, 216, 193, 0.75);
+	box-shadow:         7px 7px 0px 0px rgba(204, 216, 193, 0.75);
+	*/
+
+
+}
+.projeto-grid-infobox {
+	margin: 2% 5%;
+}
+.projeto-grid-descricao {
+	margin: 2% 0 4% 0;
+}
+.projeto-grid p { 
+	padding: 0; 
+	margin: 1% 0;
+	color: #1E90FF;
+}
+#info-container {
+	margin: 2% 0 0 0;
 }
