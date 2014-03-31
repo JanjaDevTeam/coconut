@@ -90,11 +90,11 @@ $j = 0;
 for ($i=0; $i < sizeof($projetos); $i++) {
 	array_push($coluna[$j], $projetos[$i]);
 	$j++;
-	if ($j == 4) { $j = 0;}
+	if ($j == 4) $j = 0;
 }
 
 
-
+echo '<div>';
 for ($i=0; $i<=3; $i++) {
 	echo "<div class='col-1-4-pad-3 bbox'>";
 	foreach ($coluna[$i] as $proj) {
@@ -137,5 +137,5 @@ for ($i=0; $i<=3; $i++) {
 
 }
 ?>
-
+</div>
 <div class='clear-b'></div>
