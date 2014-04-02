@@ -1,5 +1,5 @@
 
-<h4>Envie seu projeto</h4>
+<br/><div class='text-c'><h4>ENVIE SEU PROJETO</h4></div>
 <div class="aviso-projeto bbox">
 	<p>A Solucionática Projetos funciona assim: você envia seu projeto, diz <strong>quanto precisa</strong> e <strong>até quando</strong> 
 		quer arrecadar este dinheiro. Aí você divulga o projeto e as pessoas podem optar por 
@@ -39,7 +39,7 @@
 </div>
 <br/><br/>
 <div class='text-c'>
-	<form id="termos" action='termos_e_condicoes.php' method='post' class='form-stacked' onsubmit="return validateTermos();">
+	<form id="termos" action='perguntas.php' method='post' class='form-stacked' onsubmit="return validateTermos();">
 		<div class'container-100'>
 			<input type="checkbox" name="box">&nbsp; Li e entendi como funciona a Solucionática Projetos.
 		</div>

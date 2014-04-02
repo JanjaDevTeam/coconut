@@ -21,7 +21,7 @@ hr {
 
 
 #top-borda {
-	background-color: #FF670D; /* laranja: #FF670F  verde: #28B998 */
+	background-color: #28B998 ; /* laranja: #FF670F  verde: #28B998 */
 	height: 10px;
 	width: auto;
 }
@@ -60,7 +60,7 @@ hr {
 
 
 #menu ul li.selecionado {
-	background-color: #FF670D; /* laranja: #FF670F  verde: #28B998 */
+	background-color: #28B998 ; /* laranja: #FF670F  verde: #28B998 */
 	color: #FFF;
 }
 
@@ -344,4 +344,33 @@ overflow: auto;
 }
 #info-container {
 	margin: 2% 0 0 0;
+}
+
+.form-projeto label {
+	font-size: 16px;
+	font-weight: bold;
+	color: grey;
+
+}
+
+.form-projeto input[type=text] {
+	border: 1px solid lightgrey;
+	width: 350px;
+	padding: 4%;
+	margin: 1% 0;
+	font-size: 22.61px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.form-projeto textarea {
+	width: 350px;
+	padding: 3%;
+	margin: 1% 0;
+	border: 1px solid lightgrey;
+}
+
+.pequeno{
+	width: 100px;
 }

@@ -20,6 +20,15 @@ class Database extends PDO {
 	}
 	
 
+	public function getCategoria () {
+		$sql = "SELECT id, categoria FROM categoria ORDER BY categoria";
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
 
 	#### USER
 
