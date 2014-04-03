@@ -2,9 +2,9 @@
 	<br/>
 
 	<div class='container-70 aviso-projeto'>
-	<form action='#' method='post' class='form-stacked'>
+	<form name="formProjeto" action='perguntas.php' method='post' class='form-stacked' onSubmit="return validateFormProjeto();">
 		<label>Nome do projeto</label>
-		<br/><input type='text'/>
+		<br/><input name='nome' type='text'/>
 
 		
 		<br/>
@@ -50,7 +50,7 @@
 		<br/>
 		<br/>
 		<br/>
-		<label>Prazo máximo para atingir a meta.</label>
+		<label>Prazo máximo para atingir a meta</label>
 		<p>Número de dias. Máximo: 60</p>
 		<br/><input type="text" class='pequeno'/>
 
