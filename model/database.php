@@ -105,7 +105,7 @@ class Database extends PDO {
 	public function getProjeto($id) {
 
 		// implementar
-		$sql = 'SELECT idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, ativo, dataRegistro, categoria 
+		$sql = 'SELECT idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, links, ativo, dataRegistro, categoria 
 		FROM projeto, categoria WHERE projeto.idCategoria = categoria.id AND projeto.id = ' . $id;
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
@@ -124,6 +124,7 @@ class Database extends PDO {
 		$projeto->setValorArrecadado($result[0]['valorArrecadado']);
 		$projeto->setPrazo($result[0]['prazo']);
 		$projeto->setVideo($result[0]['video']);
+		$projeto->setLinks($result[0]['links']);
 		$projeto->setDataRegistro($result[0]['dataRegistro']);
 		$projeto->setAtivo($result[0]['ativo']);
 
@@ -144,6 +145,7 @@ class Database extends PDO {
 		$valorArrecadado = $projeto->getValorArrecadado();
 		$prazo = $projeto->getPrazo();
 		$video = $projeto->getVideo();
+		$links = $projeto->getLinks();
 		$ativo = $projeto->getAtivo();
 
 
@@ -151,8 +153,9 @@ class Database extends PDO {
 			
 			# grava o projeto no banco
 			$sql = "INSERT INTO projeto 
-			(idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, ativo) 
-			VALUES ($idUser, $idCategoria, '$nome', '$descricao', '$frase', $valor, 0,  $prazo, '$video', $ativo)";
+			(idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, links, ativo) 
+			VALUES ($idUser, $idCategoria, '$nome', '$descricao', '$frase', $valor, 0,  $prazo, '$video', '$links', $ativo)";
+			print $sql;
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$idProjeto = $this->lastInsertId();
@@ -163,7 +166,8 @@ class Database extends PDO {
 
 			$sql = "UPDATE projeto SET 
 			idCategoria = $idCategoria, nome ='$nome', descricao='$descricao', frase='$frase', 
-			valor=$valor, valorArrecadado = $valorArrecadado, prazo='$prazo', video='$video', ativo=$ativo 
+			valor=$valor, valorArrecadado = $valorArrecadado, prazo='$prazo', video='$video', 
+			links='$links', ativo=$ativo 
 			WHERE id = $id";
 
 			$stmt = $this->prepare($sql);

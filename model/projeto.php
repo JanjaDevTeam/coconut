@@ -12,6 +12,7 @@ class Projeto {
 	private $valorArrecadado;
 	private $prazo; # em dias
 	private $video;
+	private $links;
 	private $dataRegistro;
 	private $ativo;
 	private $colaboracao;
@@ -54,6 +55,9 @@ class Projeto {
 	}
 	public function setVideo($video) {
 		$this->video = $video;
+	}
+	public function setLinks($links) {
+		$this->links = $links;
 	}
 	public function setDataRegistro($data) {
 		$this->dataRegistro = $data;
@@ -114,6 +118,17 @@ class Projeto {
 	}
 	public function getAtivo() {
 		return $this->ativo;
+	}
+	public function getLinks() {
+		return $this->links;
+	}
+	public function getLinksArray() {
+		$linksArray = explode(',', $this->getLinks());
+		for($i=0; $i<sizeof($linksArray); $i++) {
+			$linksArray[$i] = trim($linksArray[$i]);
+		}
+		
+		return $linksArray;
 	}
 	public function getColaboracao() {
 		return $this->colaboracao;

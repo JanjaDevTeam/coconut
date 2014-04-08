@@ -17,21 +17,21 @@
 		<br/>
 		<br/>
 		<label>Histórico e como você vai utilizar o valor financiado.</label>
-		<br/><textarea rows="5"></textarea>
+		<br/><textarea name='descricao' rows="5"></textarea>
 
 		<br/>
 		<br/>
 		<br/>
 		<label>Frase de efeito</label>
 		<p>Escolha uma frase impactante para promover seu projeto.</p>
-		<br/><input type="text"/>
+		<br/><input type="text" name="frase"/>
 
 		<br/>
 		<br/>
 		<br/>
 		<label>Categoria</label>
 		<br/>
-		<select>
+		<select name="categoria">
 			<?php
 			foreach($data['categoria'] as $cat) {
 				echo "<option value='$cat[id]'>$cat[categoria]</option>\n";
@@ -45,21 +45,21 @@
 		<br/>
 		<label>Valor Pretendido</label>
 		<p>Em R$ (reais). Não utilize ponto ou vírgula.</p>
-		<br/><input type="text"/>
+		<br/><input type="text" name="valor"/>
 
 		<br/>
 		<br/>
 		<br/>
 		<label>Prazo máximo para atingir a meta</label>
 		<p>Número de dias. Máximo: 60</p>
-		<br/><input type="text" class='pequeno'/>
+		<br/><input type="text" name="prazo" class='pequeno'/>
 
 		<br/>
 		<br/>
 		<br/>
 		<label>Video do youtube</label>
 		<p>Ex: https://www.youtube.com/watch?v=rFOl-9SNxLY</p>
-		<br/><input type="text"/>
+		<br/><input type="text" name="video"/>
 
 		<br/>
 		<br/>
@@ -67,7 +67,7 @@
 		<label>Links relacionados</label>
 		<p>Coloque links importantes para seu projeto separados por vírgula e utilize http://</p>
 		<p>Exemplo: http://www.google.com, http://www.gmail.com</p>
-		<br/><input type="text"/>
+		<br/><input type="text" name="links"/>
 		<div class='text-c'><br/><button>Enviar</button></div>
 	</form>
 	</div>

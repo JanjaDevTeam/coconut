@@ -48,6 +48,7 @@ CREATE TABLE projeto (
 	valorArrecadado DECIMAL(10,2) NOT NULL,
 	prazo INT NOT NULL,
 	video VARCHAR(256) NOT NULL,
+	links VARCHAR(256) NULL,
 	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
 	ativo INT(1) NOT NULL,
 	PRIMARY KEY (id),

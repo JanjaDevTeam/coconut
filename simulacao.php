@@ -77,6 +77,7 @@ $projeto->setFrase('Rodando a simulação.');
 $projeto->setValor(15500.90);
 $projeto->setPrazo(30);
 $projeto->setVideo('http://www.youtube.com/watch?v=5BQHq4s_qHo');
+#$projeto->setLinks('www.janjadev.com, www.luzsollar.com, www.google.com');
 $projeto->setAtivo(1);
 
 $db->saveProjeto($projeto);
