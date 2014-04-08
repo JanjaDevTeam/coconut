@@ -113,8 +113,8 @@ class Projeto {
 	public function getVideo() {
 		return $this->video;
 	}
-	public function getRegistro() {
-		return $this->registro;
+	public function getDataRegistro() {
+		return $this->dataRegistro;
 	}
 	public function getAtivo() {
 		return $this->ativo;

@@ -2,9 +2,9 @@
 	<br/>
 
 	<div class='container-70 aviso-projeto'>
-	<form name="formProjeto" action='perguntas.php' method='post' class='form-stacked' onSubmit="return validateFormProjeto();">
+	<form name="formProjeto" action='perguntas.php' method='post' class='form-stacked' onSubmit="return validateFormProjeto()">
 		<label>Nome do projeto</label>
-		<br/><input name='nome' type='text'/>
+		<br/><input name='nome' type='text' required/>
 
 		
 		<br/>
@@ -17,7 +17,7 @@
 		<br/>
 		<br/>
 		<label>Histórico e como você vai utilizar o valor financiado.</label>
-		<br/><textarea name='descricao' rows="5"></textarea>
+		<br/><textarea name='descricao' rows="5" required></textarea>
 
 		<br/>
 		<br/>

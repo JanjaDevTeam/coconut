@@ -201,6 +201,29 @@ class Database extends PDO {
 
 		return $colaboracao;
 	}
+	
+	public function getColaboracaoByProjeto($idProjeto) {
+		$sql = 'SELECT id, valor, descricao, qtdTotal, qtdComprada 
+		FROM colaboracao WHERE idProjeto = ' . $idProjeto;
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		$colArray = array();
+		foreach($result as $col) {
+			$colaboracao = new Colaboracao;
+			$colaboracao->setId($col['id']);
+			$colaboracao->setIdProjeto($idProjeto);
+			$colaboracao->setValor($col['valor']);
+			$colaboracao->setDescricao($col['descricao']);
+			$colaboracao->setQtdTotal($col['qtdTotal']);
+			$colaboracao->setQtdComprada($col['qtdComprada']);
+			
+			$colArray[] = $col;
+		}
+		
+		return $colArray;
+	}
 
 
 	public function saveColaboracao($colaboracao) {
@@ -255,6 +278,7 @@ class Database extends PDO {
 
 		return $uc;
 	}
+	
 	
 }
 ?>

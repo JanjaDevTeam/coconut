@@ -107,7 +107,7 @@ for ($i=0; $i<=3; $i++) {
 
 
 		<div class='projeto-grid'>
-		<img src='img/<?=$proj['img']?>' />
+		<a href='projeto.php?id=1'><img src='img/<?=$proj['img']?>' /></a>
 		<div class='projeto-grid-infobox'>
 			<p><strong><?=$proj['titulo']?></strong></p>
 			<div class='projeto-grid-descricao bbox'>

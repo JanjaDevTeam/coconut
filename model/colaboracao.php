@@ -7,6 +7,7 @@ class Colaboracao {
 	private $descricao;
 	private $qtdTotal;
 	private $qtdComprada;
+	private $colaboracao; // array
 
 	public function setId($id) {
 		$this->id = $id;
@@ -26,6 +27,13 @@ class Colaboracao {
 	public function setQtdComprada($qtdComprada) {
 		$this->qtdComprada = $qtdComprada;
 	}
+	public function getColoaboracao($colaboracao) {
+		$this->colaboracao = $colaboracao;
+	}
+	
+	
+	
+	
 
 	public function getId() {
 		return $this->id;
@@ -44,6 +52,9 @@ class Colaboracao {
 	}
 	public function getQtdComprada() {
 		return $this->qtdComprada;
+	}
+	public function setColaboracao() {
+		return $this->colaboracao;
 	}
 }
 ?>

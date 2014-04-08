@@ -102,6 +102,7 @@ overflow: auto;
 	height: auto;
 }
 
+
 #destaque {
 	background-color: #F8F8F8;
 	color: #929292;
@@ -374,3 +375,23 @@ overflow: auto;
 .pequeno{
 	width: 100px;
 }
+
+
+.youtubeVideo {
+    position: relative;
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+}
+.youtubeVideo iframe,
+.youtubeVideo object,
+.youtubeVideo embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#projetoQuadro p { margin:  0 0 12% 0;}
