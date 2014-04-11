@@ -123,6 +123,10 @@ h1, h2, h3, h4 {
 	text-align: center;
 }
 
+.text-j {
+	text-align: justify;
+}
+
 .round-5 {
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -243,7 +247,7 @@ img {
 }
 
 
-.form-stacked button{
+.botao{
 	margin: 5% 0;
 	background-color: #28B998;
 	color: #FFF;

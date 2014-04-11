@@ -395,3 +395,41 @@ overflow: auto;
 }
 
 #projetoQuadro p { margin:  0 0 12% 0;}
+
+#colaboracao {
+	
+}
+
+#colaboracao p { font-size: 14px; color:#1E90FF;}
+#colaboracao span { font-size: 14px;}
+.colaboracaoQuadro {
+	background-color: #F7F7F7;
+	padding: 3%;
+	margin: 4% 0;
+}
+
+#proponenteQuadro {
+	padding: 3%;
+	background-color: #F7F7F7;
+	overflow: auto;
+	
+}
+#proponenteQuadro img{
+	height: 80px;
+	width: auto;
+	
+}
+#proponenteQuadro p { 
+	color:#1E90FF;
+	margin: 5% 0;
+
+}
+
+#proponenteQuadro a {
+	color: #1E90FF;
+	text-decoration: none;
+}
+
+.mce-tinymce button {
+	background-color: none;
+}

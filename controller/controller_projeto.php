@@ -12,19 +12,17 @@ class ControllerProjeto {
 		$proj = $db->getProjeto($id);
 		$colaboracao = $db->getColaboracaoByProjeto($id);
 		
+		// dados do usuário que criou o projeto
+		$user = $db->getUser($proj->getIdUser());
+		$nome = $user->getFbfullname();
+		$nome = explode(' ', $nome);
+		$nome = $nome[0];		
 		// calcula quantas colaborações foram compradas
 		$backers = 0;
 		foreach ($colaboracao as $col) {
 			$backers += $col['qtdComprada'];
 		}
-		$proj->setColaboracao = $colaboracao;
-		
-		// calcula número de dias restantes
-		$agora = date("Y-m-d H:i:s");
-		$segundosPassados = strtotime($agora) - strtotime($proj->getDataRegistro());
-		$diasPassados = $segundosPassados / 86400;
-		$prazo = $proj->getPrazo();
-		$diasRestantes = floor($prazo - $diasPassados) + 1;
+		$proj->setColaboracao($colaboracao);
 		
 		// id do video para embed
 		$exp = explode('?v=', $proj->getVideo());
@@ -32,7 +30,11 @@ class ControllerProjeto {
 		
 		$data['backers'] = $backers;
 		$data['projeto'] = $proj;
-		$data['diasRestantes'] = $diasRestantes;
+		$data['diasRestantes'] = $proj->getDiasRestantes();
+		$data['idProponente'] = $user->getId();
+		$data['proponente'] = $nome;
+		$data['pct'] = $proj->getPorcentagem();
+		$data['categoria'] = $proj->getCategoria();
 		
 		
 		return $data;

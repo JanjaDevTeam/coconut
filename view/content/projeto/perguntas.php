@@ -6,12 +6,6 @@
 		<label>Nome do projeto</label>
 		<br/><input name='nome' type='text' required/>
 
-		
-		<br/>
-		<br/>
-		<label>Imagem de capa</label>
-		<p>Imagem que representa seu projeto. Formato jpg. Não envie imagens muito grandes.</p>
-		<br/><input type='file'/>
 
 		<br/>
 		<br/>
@@ -68,7 +62,7 @@
 		<p>Coloque links importantes para seu projeto separados por vírgula e utilize http://</p>
 		<p>Exemplo: http://www.google.com, http://www.gmail.com</p>
 		<br/><input type="text" name="links"/>
-		<div class='text-c'><br/><button>Enviar</button></div>
+		<div class='text-c'><br/><button class='botao'>Enviar</button></div>
 	</form>
 	</div>
 	<br/>

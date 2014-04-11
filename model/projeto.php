@@ -133,7 +133,24 @@ class Projeto {
 	public function getColaboracao() {
 		return $this->colaboracao;
 	}
-	 
+	
+	public function getImage() {
+		$video    = explode("?v=", $this->getVideo());
+		$videoId  = $video[1];
+		$link     = "http://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+		
+		return $link;
+	}
+	
+	public function getDiasRestantes () {
+		$agora = date("Y-m-d H:i:s");
+		$segundosPassados = strtotime($agora) - strtotime($this->getDataRegistro());
+		$diasPassados = $segundosPassados / 86400;
+		$prazo = $this->getPrazo();
+		$diasRestantes = floor($prazo - $diasPassados) + 1;
+		
+		return $diasRestantes;
+	}
 
 
 }

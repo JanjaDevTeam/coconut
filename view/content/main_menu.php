@@ -33,7 +33,7 @@
 			<?php if (isset($_SESSION['user']['fbemail'])) { ?></div><? } ?>
 			<?php if (isset($_SESSION['user']['fbemail'])) { ?><div class='col-1-6 text-c'><?}?>
 			<?php if (isset($_SESSION['user']['fbid'])) { ?>
-			<a href='perfil.php'><img src="https://graph.facebook.com/<?= $_SESSION['user']['fbid'] ?>/picture" title='<?=$_SESSION['user']['fbfullname']?>' class='fb-pic'></a>
+			<a href='perfil.php?id=<?=$_SESSION['user']['id']?>'><img src="https://graph.facebook.com/<?= $_SESSION['user']['fbid'] ?>/picture?type=square" title='<?=$_SESSION['user']['fbfullname']?>' class='fb-pic'></a>
 			<?php } ?>
 			
 			

@@ -17,8 +17,12 @@ if (!isset($_GET['id'])) {
 	$data['diasRestantes']   = $projArray['diasRestantes'];
 	$data['valor']           = $projArray['projeto']->getValor();
 	$data['videoId']         = $projArray['videoId'];
+	$data['colaboracao']     = $projArray['projeto']->getColaboracao();
+	$data['idProponente']    = $projArray['idProponente'];
+	$data['proponente']      = $projArray['proponente'];
+	$data['pct']             = $projArray['pct'];
+	$data['categoria']       = $projArray['categoria'];
 }
-
 
 $data['selecionado'] = '';
 

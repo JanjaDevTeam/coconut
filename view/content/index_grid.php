@@ -7,9 +7,10 @@
 
 <?php
 
+
 $projetos = array();
 $projetos[0]['titulo'] = 'Mídias Digitais';
-$projetos[0]['img'] = '/tmp/grid1.jpg';
+$projetos[0]['img'] = 'img/tmp/grid1.jpg';
 $projetos[0]['descricao'] = 'Mídia digital é um formato de mídia eletrônica onde os dados são armazenados em 
 			formato digital (em oposto ao analógico). Pode referir-se ao aspecto técnico da 
 			armazenagem e transmissão da informação';
@@ -19,7 +20,7 @@ $projetos[0]['dias'] = '10';
 
 
 $projetos[1]['titulo'] = 'Natureza Fractal';
-$projetos[1]['img'] = '/tmp/grid2.jpg';
+$projetos[1]['img'] = 'img/tmp/grid2.jpg';
 $projetos[1]['descricao'] = 'O romanesco é a inflorescência comestível da (Brassica oleracea var. botrytis), 
 			uma variedade da espécie a que pertencem também a couve-flor, o brócolis, a couve, o 
 			repolho e a couve-de-bruxelas.';
@@ -28,14 +29,14 @@ $projetos[1]['arrecadado'] = '10000';
 $projetos[1]['dias'] = '10';
 
 $projetos[2]['titulo'] = 'Sheakspeare nas Escolas';
-$projetos[2]['img'] = '/tmp/grid3.jpg';
+$projetos[2]['img'] = 'img/tmp/grid3.jpg';
 $projetos[2]['descricao'] = 'Com o auxílio de dramaturgos ou de situações improvisadas.';
 $projetos[2]['pct'] = '70';
 $projetos[2]['arrecadado'] = '70000';
 $projetos[2]['dias'] = '9';
 
 $projetos[3]['titulo'] = 'TAMAR';
-$projetos[3]['img'] = '/tmp/grid4.jpg';
+$projetos[3]['img'] = 'img/tmp/grid4.jpg';
 $projetos[3]['descricao'] = 'A sobrevivência das tartarugas-marinhas continua em risco, 
 			após muitos anos de caça intensiva pela sua carapaça, carne (utilizada para sopa) e gordura. 
 			Atualmente a caça está controlada mas estes animais continuam a estar ameaçados pelas redes 
@@ -45,7 +46,7 @@ $projetos[3]['arrecadado'] = '25000';
 $projetos[3]['dias'] = '10';
 
 $projetos[4]['titulo'] = 'Back to the 80s';
-$projetos[4]['img'] = '/tmp/grid5.jpg';
+$projetos[4]['img'] = 'img/tmp/grid5.jpg';
 $projetos[4]['descricao'] = 'Arcade, arcada, ou fliperama, como é tradicionalmente conhecido no Brasil, 
 			é um videogame profissional usado em estabelecimentos de entretenimento.';
 $projetos[4]['pct'] = '15';
@@ -54,7 +55,7 @@ $projetos[4]['dias'] = '10';
 
 
 $projetos[5]['titulo'] = 'Alex Grey Live Paints';
-$projetos[5]['img'] = '/tmp/grid6.jpg';
+$projetos[5]['img'] = 'img/tmp/grid6.jpg';
 $projetos[5]['descricao'] = 'Alex Grey (Columbus, Ohio, 29 de Novembro de 1953), é um artista americano especialista em arte espiritual e 
 			psicodélica ou arte visionária que é por vezes associados com o movimento da Nova Era.';
 $projetos[5]['pct'] = '140';
@@ -62,7 +63,7 @@ $projetos[5]['arrecadado'] = '25000';
 $projetos[5]['dias'] = '10';
 
 $projetos[6]['titulo'] = 'AK2099';
-$projetos[6]['img'] = '/tmp/grid7.jpg';
+$projetos[6]['img'] = 'img/tmp/grid7.jpg';
 $projetos[6]['descricao'] = 'Alex Kidd (アレックスキッド, Arekkusu Kiddo?) é o protagonista de uma série de jogos de Video 
 			game produzidos pela SEGA entre o final dos anos 80 e início dos anos 90.';
 $projetos[6]['pct'] = '90';
@@ -70,13 +71,16 @@ $projetos[6]['arrecadado'] = '40000';
 $projetos[6]['dias'] = '2';
 
 $projetos[7]['titulo'] = 'Memórias da Capital';
-$projetos[7]['img'] = '/tmp/grid8.jpg';
+$projetos[7]['img'] = 'img/tmp/grid8.jpg';
 $projetos[7]['descricao'] = 'Brasília é a capital federal do Brasil e a sede do governo do 
 			Distrito Federal.7 8 A cidade está localizada na região Centro-Oeste do país, 
 			ao longo da região geográfica conhecida como Planalto Central. ';
 $projetos[7]['pct'] = '15';
 $projetos[7]['arrecadado'] = '25000';
 $projetos[7]['dias'] = '10';
+
+// projeto real
+$projetos[8] = $data['teste'];
 
 shuffle($projetos);
 
@@ -107,7 +111,7 @@ for ($i=0; $i<=3; $i++) {
 
 
 		<div class='projeto-grid'>
-		<a href='projeto.php?id=1'><img src='img/<?=$proj['img']?>' /></a>
+		<a href='projeto.php?id=1'><img src='<?=$proj['img']?>' /></a>
 		<div class='projeto-grid-infobox'>
 			<p><strong><?=$proj['titulo']?></strong></p>
 			<div class='projeto-grid-descricao bbox'>

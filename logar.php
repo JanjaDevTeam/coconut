@@ -16,7 +16,7 @@ if(isset($_GET['code'])) {
 		$_SESSION['user']['fbid']       = $fbid;
 		$_SESSION['user']['fbuname']    = $fbuname;
 		$_SESSION['user']['fbfullname'] = $fbfullname;
-		$_SESSION['user']['fbemail']    = $fbemail;
+		$_SESSION['user']['fbemail']    = $fbemail;		
 		
 		$db = new Database();
 
@@ -37,6 +37,9 @@ if(isset($_GET['code'])) {
 			$user->setDataAcesso($agora);
 
 			$user = $db->saveUser($user);
+			$url = "https://graph.facebook.com/" .  $_SESSION['user']['fbid']. "/picture";
+			$img = "img/userpics/" . $user->getId() . ".jpg";
+			copy($url, $img);
 		}else {
 			$id    = $user->getId();
 			$ativo = $user->getAtivo();
@@ -51,6 +54,10 @@ if(isset($_GET['code'])) {
 			$_SESSION['user']['setDataAcesso'] = $agora;
 
 			$user = $db->saveUser($user);
+			
+			$url = "https://graph.facebook.com/" .  $_SESSION['user']['fbid']. "/picture?type=large";
+			$img = "img/userpics/" . $user->getId() . ".jpg";
+			copy($url, $img);
 
 			// $carteiro->boasVindas($user);
 

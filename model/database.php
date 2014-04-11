@@ -63,7 +63,7 @@ class Database extends PDO {
 	
 	
 	
-	public function loadUser($id) {
+	public function getUser($id) {
 		$sql = "SELECT fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso FROM user 
 		WHERE id = " . $id;
 		$stmt = $this->prepare($sql);
@@ -92,7 +92,7 @@ class Database extends PDO {
 		
 		if (sizeof($result) > 0) {
 			$id = $result[0]['id'];
-			$user = $this->loadUser($id);
+			$user = $this->getUser($id);
 			return $user;
 			
 		}
@@ -154,8 +154,8 @@ class Database extends PDO {
 			# grava o projeto no banco
 			$sql = "INSERT INTO projeto 
 			(idUser, idCategoria, nome, descricao, frase, valor, valorArrecadado, prazo, video, links, ativo) 
-			VALUES ($idUser, $idCategoria, '$nome', '$descricao', '$frase', $valor, 0,  $prazo, '$video', '$links', $ativo)";
-			print $sql;
+			VALUES ($idUser, $idCategoria, '$nome', '$descricao', '$frase', $valor, $valorArrecadado,  $prazo, '$video', '$links', $ativo)";
+			
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$idProjeto = $this->lastInsertId();

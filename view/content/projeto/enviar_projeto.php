@@ -43,6 +43,6 @@
 		<div class'container-100'>
 			<input type="checkbox" name="box">&nbsp; Li e entendi como funciona a Solucionática Projetos.
 		</div>
-		<button>Quero enviar meu projeto</button>
+		<button class='botao'>Quero enviar meu projeto</button>
 	</form>
 </div>
