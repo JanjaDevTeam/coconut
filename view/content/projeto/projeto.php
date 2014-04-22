@@ -56,6 +56,7 @@
 			<p><strong>Colaboradores: <?=$colab['qtdComprada']?> de <?=$colab['qtdTotal']?> - limitada</strong></p>
 		<?php } ?>
 	<span><?=$colab['descricao']?></span>
+	<br/><a href='colaborar.php?id=<?=$colab['id']?>'>Clique aqui</a>
 	</div>
 	<?php } ?>
 	</div>
