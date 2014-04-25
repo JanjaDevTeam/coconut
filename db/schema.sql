@@ -79,6 +79,18 @@ CREATE TABLE user_colaboracao (
 	FOREIGN KEY (idColaboracao) REFERENCES colaboracao(id) ON DELETE RESTRICT
 )ENGINE=InnoDB;
 
+# moip
+CREATE TABLE moip_nasp (
+	id INT NOT NULL AUTO_INCREMENT,
+	idTransacao VARCHAR(32) NOT NULL,
+	valor INTEGER NOT NULL,
+	statusPagamento INTEGER NOT NULL,
+	codMoip CHAR(32) NOT NULL,
+	formaPagamento INTEGER NOT NULL,
+	tipoPagamento VARCHAR(32) NOT NULL,
+	emailConsumidor VARCHAR(45) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB;
 
 # INSERTS
 
