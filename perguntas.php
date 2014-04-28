@@ -17,7 +17,7 @@ if (isset($_POST['nome'])) {
 	$proj->setPrazo($_POST['prazo']);
 	$proj->setVideo($_POST['video']);
 	$proj->setLinks($_POST['links']);
-	$proj->setAtivo(1);
+	$proj->setAtivo(0); // precisa passar por aprovação para ativar
 	
 	$db = new Database;
 	$db->saveProjeto($proj);

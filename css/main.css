@@ -408,6 +408,10 @@ overflow: auto;
 	margin: 4% 0;
 }
 
+#colaboracao :hover {
+	background-color: #DEDEDE;
+}
+
 #proponenteQuadro {
 	padding: 3%;
 	background-color: #F7F7F7;
@@ -430,6 +434,29 @@ overflow: auto;
 	text-decoration: none;
 }
 
-.mce-tinymce button {
-	background-color: none;
+.editIcon {
+	height: 50px;
+	width: auto;
+}
+
+.pilula {
+	margin: 3% 0 0 0;
+	padding: 0;
+}
+
+.pilula ul {
+	margin: 0;
+	padding: 0;
+}
+.pilula ul li{
+	display: inline;
+	background-color: #DCDCDC;
+	padding: 1% 2%;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+.pilula a {
+	text-decoration: none;
+	color: #1E90FF;
 }
