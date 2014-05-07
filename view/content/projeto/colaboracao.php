@@ -11,8 +11,8 @@
 		<span><?=$colab['descricao']?></span>
 		<div class='pilula'>
 			<ul>
-				<a href='#'><li>Editar</li></a>
-				<a href='#'><li>Deletar</li></a>
+				<a href='editar_colab.php?id=<?=$colab['id']?>'><li>Editar</li></a>
+				<a href='excluir_colab.php?id=<?=$colab['id']?>'><li>Deletar</li></a>
 			</ul>
 		</div>
 	</div>
