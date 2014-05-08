@@ -6,6 +6,15 @@ require_once('model/colaboracao.php');
 
 
 $idProjeto = $_GET['id'];
+if(isset($_GET['box'])) {
+	$data['box'] = $_GET['box'];
+}
+if(isset($_GET['erro'])) {
+	switch($_GET['erro']) {
+		case 0:
+			$data['erro'] = "A colaboração já foi vendida e não pode ser deletada.";
+	}
+}
 
 $db = new Database;
 $proj  = $db->getProjeto($idProjeto);

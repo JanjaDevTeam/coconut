@@ -228,25 +228,64 @@ class Database extends PDO {
 
 	public function saveColaboracao($colaboracao) {
 
+
+		$id          = $colaboracao->getId();
 		$idProjeto   = $colaboracao->getIdProjeto();
 		$valor       = $colaboracao->getValor();
 		$descricao   = $colaboracao->getDescricao();
 		$qtdTotal    = $colaboracao->getQtdTotal();
 		$qtdComprada = $colaboracao->getQtdComprada();
+		if ($id == NULL) {
+			$sql = "INSERT INTO colaboracao 
+			(idProjeto, valor, descricao, qtdTotal, qtdComprada) 
+			values ($idProjeto, $valor, '$descricao', $qtdTotal, $qtdComprada)";
 
-		$sql = "INSERT INTO colaboracao 
-		(idProjeto, valor, descricao, qtdTotal, qtdComprada) 
-		values ($idProjeto, $valor, '$descricao', $qtdTotal, $qtdComprada)";
+			$stmt = $this->prepare($sql);
+			$result = $stmt->execute();
 
-		$stmt = $this->prepare($sql);
-		$result = $stmt->execute();
+			$id = $this->lastInsertId();
+			$colaboracao->setId($id);
 
-		$id = $this->lastInsertId();
-		$colaboracao->setId($id);
+		} else {
+			$colaboracao->setId($id);
+			$sql = "UPDATE colaboracao 
+			SET valor=$valor, descricao='$descricao', qtdTotal=$qtdTotal 
+			WHERE id = $id";
+
+			$stmt = $this->prepare($sql);
+			$result = $stmt->execute();
+			
+		}
+
 
 		return $colaboracao;
 	}
 
+	public function delColaboracao($colab) {
+		$id = $colab->getId();
+
+		$erro = array();
+		//verifica se tem vendas amarradas
+		$sql = 'SELECT COUNT(id) as count FROM user_colaboracao 
+		WHERE idColaboracao =' . $id;
+		$stmt   = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$count  = $result[0]['count'];
+
+		if ($count > 0) {
+			$erro[] = 0;
+			return $erro;
+		}
+
+		$sql = 'DELETE FROM colaboracao WHERE id=' . $id;
+		print $sql;
+
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return $erro;
+	}
 	
 	#### USER COLABORAÇÃO
 	function saveUserColaboracao($idUser, $idColaboracao, $quantidade) {

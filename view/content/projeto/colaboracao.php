@@ -1,4 +1,14 @@
 <h4><?=$data['nomeProjeto']?></h4>
+<?php if (isset($data['box']) && $data['box'] == 1): ?>
+	<br/>
+<div class='aviso-verde'>Atualizado com sucesso.</div>
+<?php endif ?>
+
+<?php if (isset($data['erro'])): ?>
+	<br/>
+<div class='aviso-vermelho'><?=$data['erro']?>.</div>
+<?php endif ?>
+
 <div id="colaboracao">
 	<?php foreach ($data['colaboracao'] as $colab) { ?>
 		<div class='colaboracaoQuadro bbox'>

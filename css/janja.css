@@ -265,6 +265,14 @@ img {
 	background-color: #FFAEAE;
 	border: 1px solid  #B30000;
 	color: #B30000;
-	padding: 3%;
-	margin-bottom: 5%;
+	padding: 1%;
+	margin: 1% 0;
+}
+
+.aviso-verde {
+	background-color: #AEFFAE;
+	border: 1px solid  #0DB300;
+	color: #0EB300;
+	padding: 1%;
+	margin: 1% 0;
 }
