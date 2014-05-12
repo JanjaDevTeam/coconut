@@ -1,0 +1,276 @@
+body {
+	font-size: 110%; /* base font size: 14px*/
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
+	text-align: left;
+	margin: 0 auto;
+
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+
+.red {
+	color: red;
+}
+
+.debug {
+	background-color: grey;
+}
+
+.bbox {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;
+}
+
+.col_1_4 {
+	width: 25%;
+	float: left;
+}
+
+.col_1_2 {
+	width: 50%;
+	float: left;
+	
+}
+
+.col_1_3 {
+	width: 33%;
+	float: left;
+	
+}
+
+.col_3_4 {
+	width: 75%;
+	float: left;
+}
+
+.menu ul {
+	#background-color: grey;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.menu ul li {
+	padding: 5% 0 5% 10%;
+}
+
+.menu ul li:hover {
+	background-color: #E1E1E1;
+}
+
+
+.menu ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+.formlogin label{
+	width: 100%;
+	margin-bottom: 5%;
+}
+
+.formlogin input[type=text], .formlogin input[type=password] {
+	width: 100%;
+	margin-bottom: 5%;
+	padding: 2%;
+
+}
+
+.formlogin input[type='submit'] {
+	width: 20%;
+}
+
+.formlogin {
+	width: 40%;
+}
+
+.formlogin fieldset {
+	padding: 5%;
+	margin-top: 5%;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.table {
+	margin-top: 2%;
+	width: 100%;
+}
+
+.table thead tr td {
+	background-color: #338A9F;
+	color: white;
+	padding: 1%;
+}
+
+.table tr td {
+	padding: 1%;
+	margin: 1%;
+}
+
+.editar{
+	width: 10%;
+}
+
+.alert {
+	color: red;
+}
+
+.center_text {
+	text-align: center;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color:#E5F1F4;
+} 
+
+#topbar {
+	height: 80px;
+	background-color: #28B998;
+}
+
+#topbar a {
+	text-decoration: none;
+	color: white;
+}
+#logo {
+	color: white;
+	line-height: 80px;
+	height: 80px;
+	padding-left: 2%;
+}
+
+#logo h2 {
+	margin: 0;
+	padding: 0;
+}
+
+#usuario {
+	color: white;
+	text-align: right;
+	height: 80px;
+	line-height: 80px;
+	padding-right: 2%;
+}
+
+#menu {
+	background-color: #F5F5F5;
+	/* Para Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, #F5F5F5, #fff) repeat-X;
+	/* Para WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#fff)) repeat-X;
+	/* Para IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#fff";
+	min-height: 600px;
+	
+}
+
+
+#content {
+	padding: 2%;
+}
+
+
+.form {
+	width: 100%;
+	margin: auto;
+}
+
+.form legend {
+  background-color: #fff;
+  padding: 0 2%;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  }
+.form fieldset {
+	font-weight:bold;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #9ACCE3;
+	margin-top: 2%;
+
+	
+}
+
+.form input[type=text] {
+	width: 96%;
+	padding: 0 2%;
+	height: 30px;
+	border: 1px solid #9ACCE3;
+	/* Para Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, #F5F5F5, #fff) repeat-X;
+	/* Para WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#fff)) repeat-X;
+	/* Para IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#fff";
+	font-size: 100%;
+	color: #616161;
+	margin-bottom: 2%;
+}
+
+.form input:focus, .form textarea:focus {
+	border: 1px solid #E39C9A;
+}
+
+.form textarea {
+	width: 96%;
+	height: 20%;
+	border: 1px solid #9ACCE3;
+	font-size: 130%;
+	color: #616161;
+	padding: 2%;
+}
+
+.form_up input {
+	height: 30px;
+}
+.submit_button{
+	width: 150px;
+	border: 1px solid #3467CB;
+	padding: 5px;
+	background-color: #0274BE;
+	color: #FFFFFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 90%;
+}
+
+.form select {
+	width: 100%;
+	height: 30px;
+	font-size: 90%;
+}
+
+.form label{
+	clear: both;
+	color: #6B6B6B;
+}
+
+.ajuste {
+	padding: 0 1%;
+}
+
+.sucesso {
+	border: 1px solid #093F00;
+	background-color: #6CFF5F;
+	padding: 2%;
+	margin: 0 0 2% 0;
+	color: #128100;
+}
+
+.erro {
+	border: 1px solid red;
+	background-color: #FF7676;
+	padding: 2%;
+	margin: 0 0 2% 0;
+	color: #810000;
+}

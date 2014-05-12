@@ -37,6 +37,7 @@ if(isset($_GET['code'])) {
 			$user->setDataAcesso($agora);
 
 			$user = $db->saveUser($user);
+			$_SESSION['user']['id'] = $user->getId();
 			$url = "https://graph.facebook.com/" .  $_SESSION['user']['fbid']. "/picture";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);

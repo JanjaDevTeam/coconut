@@ -1,0 +1,7 @@
+$config = array(
+			'db_type' => 'mysql',
+			'db_host' => 'localhost',
+			'db_name' => 'rc2co684_coconut',
+			'db_username' => 'rc2co684_coconut',
+			'db_password' => 'j4nj4c0c0nut'
+		);
