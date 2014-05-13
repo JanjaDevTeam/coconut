@@ -28,6 +28,11 @@ CREATE TABLE user (
 	PRIMARY KEY(id)
 )ENGINE=InnoDB;
 
+CREATE TABLE vip (
+	id INT NOT NULL AUTO_INCREMENT,
+	fbemail CHAR(64) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=MyISAM;
 
 
 CREATE TABLE categoria (
@@ -51,6 +56,7 @@ CREATE TABLE projeto (
 	links VARCHAR(256) NULL,
 	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
 	ativo INT(1) NOT NULL,
+	analise INT(1) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE RESTRICT,
 	FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON DELETE RESTRICT
@@ -114,3 +120,6 @@ INSERT INTO categoria (categoria) VALUES ('mobilidade urbana');
 INSERT INTO categoria (categoria) VALUES ('intervenção urbana');
 INSERT INTO categoria (categoria) VALUES ('arte de rua');
 INSERT INTO categoria (categoria) VALUES ('inclusão social');
+
+INSERT INTO vip (fbemail) VALUES ('brunocanongia@gmail.com');
+INSERT INTO vip (fbemail) VALUES ('rc2@janjadev.com');

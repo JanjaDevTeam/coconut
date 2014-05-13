@@ -62,7 +62,7 @@
 		<p>Coloque links importantes para seu projeto separados por vírgula e utilize http://</p>
 		<p>Exemplo: http://www.google.com, http://www.gmail.com</p>
 		<br/><input type="text" name="links"/>
-		<div class='text-c'><br/><button class='botao'>Enviar</button></div>
+		<div class='text-c'><br/><button class='botao'>Próxima Etapa</button></div>
 	</form>
 	</div>
 	<br/>

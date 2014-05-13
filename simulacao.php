@@ -91,6 +91,7 @@ $projeto->setValorArrecadado(600);
 $projeto->setVideo('http://www.youtube.com/watch?v=5BQHq4s_qHo');
 #$projeto->setLinks('www.janjadev.com, www.luzsollar.com, www.google.com');
 $projeto->setAtivo(1);
+$projeto->setAnalise(0);
 
 $db->saveProjeto($projeto);
 

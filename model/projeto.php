@@ -15,6 +15,7 @@ class Projeto {
 	private $links;
 	private $dataRegistro;
 	private $ativo;
+	private $analise;
 	private $colaboracao;
 
 
@@ -64,6 +65,9 @@ class Projeto {
 	}
 	public function setAtivo($ativo) {
 		$this->ativo = $ativo;
+	}
+	public function setAnalise($analise) {
+		$this->analise = $analise;
 	}
 	public function setColaboracao($colaboracao) {
 		$this->colaboracao = $colaboracao;
@@ -118,6 +122,9 @@ class Projeto {
 	}
 	public function getAtivo() {
 		return $this->ativo;
+	}
+	public function getAnalise() {
+		return $this->analise;
 	}
 	public function getLinks() {
 		return $this->links;

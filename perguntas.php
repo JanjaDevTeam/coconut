@@ -18,10 +18,12 @@ if (isset($_POST['nome'])) {
 	$proj->setVideo($_POST['video']);
 	$proj->setLinks($_POST['links']);
 	$proj->setAtivo(0); // precisa passar por aprovação para ativar
+	$proj->setAnalise(0);
 	
 	$db = new Database;
-	$db->saveProjeto($proj);
-	Janja::Debug($proj); exit;
+	$proj = $db->saveProjeto($proj);
+	$id = $proj->getId();
+	header("Location: projeto.php?id=$id");
 	
 	
 }
