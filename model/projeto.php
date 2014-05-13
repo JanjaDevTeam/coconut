@@ -155,6 +155,11 @@ class Projeto {
 		$diasPassados = $segundosPassados / 86400;
 		$prazo = $this->getPrazo();
 		$diasRestantes = floor($prazo - $diasPassados) + 1;
+
+		//correção pra hora do cadastro;
+		if ($agora == $this->getDataRegistro()) {
+			$diasRestantes -= 1;
+		}
 		
 		return $diasRestantes;
 	}

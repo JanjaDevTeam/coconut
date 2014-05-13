@@ -5,7 +5,22 @@
 	<div class='youtubeVideo'>
 		<iframe src="//www.youtube.com/embed/<?=$data['videoId']?>" frameborder="0" allowfullscreen></iframe>
 	</div>
-	
+	<?php if($data['temColab'] == 0): ?>
+	<div class="aviso-azul">
+		Você só poderá enviar seu projeto para análise se o mesmo tiver alguma faixa de colaboração cadastrada.
+	</div>
+	<?php endif; ?>
+
+	<div class="pilula">
+		<ul><a href="#"><li>Editar</li></a>
+			<a href="colaboracao.php?id=<?=$data['id']?>"><li>Editar Colaboração</li></a>
+			<?php if($data['ativo'] == 0 && $data['temColab'] > 0 && $data['analise'] == 0): ?>
+			<a href="analise.php?id=<?=$data['id']?>"><li>Enviar para Análise</li></a>
+			<?php elseif($data['analise'] == 1): ?>
+			<li>Em Análise</li>
+			<?php endif; ?>
+		</ul>
+	</div>
 	<p><?=$data['descricao']?></p>
 	
 </div>

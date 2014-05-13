@@ -12,7 +12,7 @@
 		<span><?=$data['descricao']?></span>
 		<div class='pilula'>
 			<ul>
-				<a href='excluir_colab.php?id=1&action=1'><li>Sim. Quero apagar!</li></a>
+				<a href='excluir_colab.php?id=<?=$data['idColab']?>&action=1'><li>Sim. Quero apagar!</li></a>
 			</ul>
 		</div>
 	</div>

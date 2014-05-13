@@ -23,6 +23,7 @@ $colab = $db->getColaboracaoByProjeto($idProjeto);
 $data['selecionado'] = 'enviar';
 $data['nomeProjeto'] = $proj->getNome();
 $data['colaboracao'] = $colab;
+$data['idProjeto'] = $proj->getId();
 
 Janja::loadTemplate('main', 'projeto/colaboracao', $data);
 ?>

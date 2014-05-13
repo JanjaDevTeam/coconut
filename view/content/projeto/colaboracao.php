@@ -9,6 +9,14 @@
 <div class='aviso-vermelho'><?=$data['erro']?>.</div>
 <?php endif ?>
 
+<br/>
+<div class="pilula">
+	<ul>
+		<a href="nova_colab.php?id=<?=$data['idProjeto']?>"><li>Nova colaboração</li></a>
+	</ul>
+</div>
+<br/>
+<hr/>
 <div id="colaboracao">
 	<?php foreach ($data['colaboracao'] as $colab) { ?>
 		<div class='colaboracaoQuadro bbox'>
@@ -28,3 +36,6 @@
 	</div>
 <?php } ?>
 </div>
+</br>
+<a href="projeto.php?id=<?=$data['idProjeto']?>">Voltar</a>
+<div class="clear-b">&nbsp;</div>

@@ -22,9 +22,14 @@ if (!isset($_GET['id'])) {
 	$data['proponente']      = $projArray['proponente'];
 	$data['pct']             = $projArray['pct'];
 	$data['categoria']       = $projArray['categoria'];
+	$data['ativo']           = $projArray['projeto']->getAtivo();
+	$data['analise']         = $projArray['projeto']->getAnalise();
+	$data['id']              = $projArray['projeto']->getId();
+
+	$data['temColab'] = sizeof($data['colaboracao']) > 0 ? 1 : 0;
 }
 
-$data['selecionado'] = '';
+$data['selecionado'] = 'enviar';
 
 Janja::loadTemplate('main', 'projeto/projeto', $data);
 ?>

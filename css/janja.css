@@ -276,3 +276,11 @@ img {
 	padding: 1%;
 	margin: 1% 0;
 }
+
+.aviso-azul {
+	background-color: #AEBDFF;
+	border: 1px solid  #0011B3;
+	color: #000962;
+	padding: 1%;
+	margin: 1% 0;
+}

@@ -31,6 +31,7 @@ $data['valor']       = $colab->getValor();
 $data['descricao']   = $colab->getDescricao();
 $data['qtdTotal']    = $colab->getQtdTotal();
 $data['idProjeto']   = $colab->getIdProjeto();
+$data['idColab']     = $idColab;
 
 
 Janja::loadTemplate('main', 'projeto/excluir_colab', $data);
