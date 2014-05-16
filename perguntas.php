@@ -2,6 +2,7 @@
 require_once('lib/janja.php');
 require_once('model/database.php');
 require_once('model/projeto.php');
+
 session_start();
 
 if (isset($_POST['nome'])) {
