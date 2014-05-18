@@ -39,6 +39,21 @@ class ControllerProjeto {
 		
 		return $data;
 	}
+
+	public function validarProjeto($proj) {
+		$erros = array();
+		// verifica campos em branco
+		if($proj->getNome() == "") { $erros[] = "nome"; }
+		if($proj->getIdCategoria() == "") {$erros[] = "categoria";}
+		if($proj->getDescricao()=="") {$erros[] = "descrição";}
+		if($proj->getFrase()=="") {$erros[] = "frase";}
+		if($proj->getValor()=="") { $erros[] = "valor";}
+		if($proj->getPrazo()=="") {$erros[] = "prazo";}
+		if($proj->getVideo()=="") {$erros[] = "video";}
+		if($proj->getLinks()=="") {$erros[] = "links";}
+
+		return (sizeof($erros) == 0) ? True : $erros; 
+	}
 }
 
 ?>
