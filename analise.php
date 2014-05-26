@@ -8,7 +8,11 @@ $idProjeto = $_GET['id'];
 
 $db = new Database;
 $proj = $db->getProjeto($idProjeto);
-$proj = $db->toggleAnalise($proj);
+if ($proj->getAnalise() == 0) {
+	$proj = $db->toggleAnalise($proj);
+}
+
+header("location: projeto.php?id=$idProjeto");
 // modo análise
 
 ?>

@@ -133,6 +133,8 @@ class Database extends PDO {
 
 	}
 
+
+
 	public function saveProjeto($projeto) {
 		$id          = $projeto->getId();
 		$idUser      = $projeto->getIdUser();
@@ -180,6 +182,17 @@ class Database extends PDO {
 		return True;
 
 
+	}
+
+	public function getAbertosList() {
+		$sql = 'SELECT idUser, idCategoria, nome
+		FROM projeto, categoria 
+		WHERE analise=1 AND projeto.idCategoria = categoria.id';
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $result;
 	}
 
 	#### COLABORAÇÃO

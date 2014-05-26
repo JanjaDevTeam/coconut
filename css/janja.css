@@ -263,24 +263,32 @@ img {
 
 .aviso-vermelho {
 	background-color: #FFAEAE;
-	border: 1px solid  #B30000;
 	color: #B30000;
-	padding: 1%;
-	margin: 1% 0;
+	padding: 3%;
+	margin: 2% 0;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 
 .aviso-verde {
-	background-color: #AEFFAE;
-	border: 1px solid  #0DB300;
-	color: #0EB300;
-	padding: 1%;
-	margin: 1% 0;
+	background-color: #28B998;
+	color: white;
+	padding: 3%;
+	margin: 2% 0;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	font-weight: bold;
 }
 
 .aviso-azul {
-	background-color: #AEBDFF;
-	border: 1px solid  #0011B3;
-	color: #000962;
-	padding: 1%;
-	margin: 1% 0;
+	background-color: #5767FF;
+	color: white;
+	padding: 3%;
+	margin: 2% 0;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	font-weight: bold;
 }

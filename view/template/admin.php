@@ -19,9 +19,8 @@
 </div>
 <div class="col_1_4 bbox menu" id="menu">
 	<ul>
-		<li><a href="#">Projetos</a></li>
-		<li><a href="#">Projetos</a></li>
-		<li><a href="#">Projetos</a></li>
+		<li><a href="adm_projetos_abertos.php">Projetos em aberto (<?=$data['qtdAbertos']?>)</a></li>
+		<li><a href="adm_projetos_ativos.php">Projetos ativos (<?=$data['qtdAtivos']?>)</a></li>
 	</ul>
 </div>
 <div class='col_3_4 bbox' id="content">

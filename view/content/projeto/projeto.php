@@ -5,22 +5,32 @@
 	<div class='youtubeVideo'>
 		<iframe src="//www.youtube.com/embed/<?=$data['videoId']?>" frameborder="0" allowfullscreen></iframe>
 	</div>
-	<?php if($data['temColab'] == 0): ?>
+	<?php if($data['temColab'] == 0 && $data['analise'] == 0): ?>
 	<div class="aviso-azul">
 		Você só poderá enviar seu projeto para análise se o mesmo tiver alguma faixa de colaboração cadastrada.
 	</div>
 	<?php endif; ?>
-
+	<?php if($data['ativo'] == 0 && $data['temColab'] > 0 && $data['analise'] == 0): ?>
+	<div class="aviso-azul">
+		Você já pode enviar seu projeto para análise!
+	</div>
+	<?php endif; ?>
+	<?php if ($data['analise'] == 1): ?>
+	<div class="aviso-azul">
+		Seu projeto está em análise!
+		<br/>Responderemos por email em breve. Aguarde!
+	</div>
+	<?php endif; ?>
+	<?php if ($data['analise'] == 0): ?>
 	<div class="pilula">
 		<ul><a href="#"><li>Editar</li></a>
 			<a href="colaboracao.php?id=<?=$data['id']?>"><li>Editar Colaboração</li></a>
 			<?php if($data['ativo'] == 0 && $data['temColab'] > 0 && $data['analise'] == 0): ?>
 			<a href="analise.php?id=<?=$data['id']?>"><li>Enviar para Análise</li></a>
-			<?php elseif($data['analise'] == 1): ?>
-			<li>Em Análise</li>
 			<?php endif; ?>
 		</ul>
 	</div>
+	<?php endif; ?>
 	<p><?=$data['descricao']?></p>
 	
 </div>
