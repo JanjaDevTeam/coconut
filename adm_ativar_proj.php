@@ -38,6 +38,11 @@ if (isset($_GET['id'])) {
 	$data['nome'] = $proj->getNome();
 	$data['id'] = $id;
 
+	$lista = $db->getAbertosList();
+	$data['qtdAbertos'] = sizeof($lista);
+	$lista = $db->getAtivosList();
+	$data['qtdAtivos'] = sizeof($lista);
+
 	Janja::loadTemplate('admin', 'admin/ativar_proj', $data);
 }
 ?>

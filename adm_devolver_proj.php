@@ -21,6 +21,9 @@ if (isset($_POST['id'])) {
 	if ($proj->getAnalise() == 1) {
 		$proj = $db->toggleAnalise($proj);
 	}
+	if ($proj->getAtivo() == 1) {
+		$proj = $db->toggleAnalise($proj);
+	}
 
  	header("location: adm_projetos_abertos.php");
 }
@@ -34,6 +37,11 @@ if (isset($_GET['id'])) {
 	$proj = $db->getProjeto($id);
 	$data['nome'] = $proj->getNome();
 	$data['id'] = $id;
+
+	$lista = $db->getAbertosList();
+	$data['qtdAbertos'] = sizeof($lista);
+	$lista = $db->getAtivosList();
+	$data['qtdAtivos'] = sizeof($lista);
 
 	Janja::loadTemplate('admin', 'admin/devolver_proj', $data);
 }
