@@ -4,6 +4,8 @@
 <p><strong><?=$data['nome']?></strong></p>
 <p><?=$data['owner']?></p>
 <p><?=$data['email']?></p>
+<p>Dias restantes: <?=$data['diasRestantes']?>/<?=$data['prazo']?></p>
+<p>Já financiado: <?=$data['pct']?>%</p>
 <br/>
 <p>Status do projeto: &nbsp;<?=$data['ativo']?> 
 	<?php

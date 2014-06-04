@@ -361,12 +361,23 @@ class Database extends PDO {
 
 		return $erro;
 	}
+
+	function getColabBySeed($seed) {
+		$sql = "SELECT idColaboracao FROM user_colaboracao WHERE seed = '$seed'";
+		$stmt   = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$idColab = $result[0]['idColaboracao'];
+
+		$colab = $this->getColaboracao($idColab);
+		return $colab;
+	}
 	
 	#### USER COLABORAÇÃO
-	function saveUserColaboracao($idUser, $idColaboracao, $quantidade) {
+	function saveUserColaboracao($idUser, $idColaboracao, $seed) {
 		$sql = "INSERT INTO user_colaboracao 
-		(idUser, idColaboracao, quantidade) VALUES 
-		($idUser, $idColaboracao, '$quantidade')";
+		(idUser, idColaboracao, seed) VALUES 
+		($idUser, $idColaboracao, '$seed')";
 
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
@@ -375,8 +386,18 @@ class Database extends PDO {
 
 	}
 
+	function updateUserColaboracaoBySeed($seed, $statusPagamento) {
+		$sql = "UPDATE user_colaboracao SET statusMoip=$statusPagamento WHERE seed='$seed'";
+		print $sql;
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return True;
+
+	}
+
 	function getUserColaboracao($id) {
-		$sql = 'SELECT idUser, idColaboracao, quantidade, dataRegistro 
+		$sql = 'SELECT idUser, idColaboracao, dataRegistro 
 		FROM user_colaboracao WHERE id = ' . $id;
 
 		$stmt  = $this->prepare($sql);
@@ -387,7 +408,6 @@ class Database extends PDO {
 		$uc->setId($id);
 		$uc->setIdUser($result[0]['idUser']);
 		$uc->setIdColaboracao($result[0]['idColaboracao']);
-		$uc->setQuantidade($result[0]['quantidade']);
 		$uc->setDataRegistro($result[0]['dataRegistro']);
 
 		return $uc;

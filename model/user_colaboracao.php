@@ -3,7 +3,7 @@ class UserColaboracao {
 	private $id;
 	private $idUser;
 	private $idColaboracao;
-	private $quantidade;
+	private $seed;
 	private $dataRegistro;
 
 	public function setId($id) {
@@ -15,13 +15,12 @@ class UserColaboracao {
 	public function setIdColaboracao($idColaboracao) {
 		$this->idColaboracao = $idColaboracao;
 	}
-	public function setQuantidade($quantidade) {
-		$this->quantidade = $quantidade;
-	}
 	public function setDataRegistro($data) {
 		$this->dataRegistro = $data;
 	}
-
+	public function setSeed($seed) {
+		$this->seed = $seed;
+	}
 	public function getId() {
 		return $this->id;
 	}
@@ -29,11 +28,11 @@ class UserColaboracao {
 	public function getIdUser() {
 		return $this->idUser;
 	}
+	public function getSeed() {
+		return $this->seed;
+	}
 	public function getIdColaboracao() {
 		return $this->idColaboracao();
-	}
-	public function getQuantidade() {
-		return $this->quantidade;
 	}
 	public function dataRegistro() {
 		return $this->dataRegistro;

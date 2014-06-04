@@ -2,6 +2,7 @@
 require_once('lib/janja.php');
 require_once('model/database.php');
 require_once('model/projeto.php');
+require_once('controller/controller_projeto.php');
 
 session_start();
 
@@ -32,6 +33,15 @@ $data['ativo'] = ($proj->getAtivo() == 0) ? "Inativo" : "Ativo";
 $data['analise'] = ($proj->getAnalise() == 0) ? "Não enviado" : "Em análise";
 $data['projAnalise'] = $proj->getAnalise();
 $data['projAtivo'] = $proj->getAtivo();
+
+
+
+
+$ct = new ControllerProjeto;
+$projArray = $ct->getProjetoCompleto($id);
+$data['diasRestantes']   = $projArray['diasRestantes'];
+$data['prazo']           = $projArray['prazo'];
+$data['pct']             = $projArray['pct'];
 
 
 

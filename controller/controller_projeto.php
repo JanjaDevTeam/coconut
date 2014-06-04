@@ -35,6 +35,7 @@ class ControllerProjeto {
 		$data['proponente'] = $nome;
 		$data['pct'] = $proj->getPorcentagem();
 		$data['categoria'] = $proj->getCategoria();
+		$data['prazo'] = $proj->getPrazo();
 		
 		
 		return $data;

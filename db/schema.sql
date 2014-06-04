@@ -78,8 +78,9 @@ CREATE TABLE user_colaboracao (
 	id INT NOT NULL AUTO_INCREMENT,
 	idUser INT NOT NULL,
 	idColaboracao INT NOT NULL,
-	quantidade INT NOT NULL,
+	seed CHAR(32) NOT NULL,
 	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
+	statusMoip INT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE RESTRICT,
 	FOREIGN KEY (idColaboracao) REFERENCES colaboracao(id) ON DELETE RESTRICT
