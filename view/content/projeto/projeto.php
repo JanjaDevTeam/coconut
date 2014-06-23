@@ -13,6 +13,7 @@
 	<?php if($data['ativo'] == 0 && $data['temColab'] > 0 && $data['analise'] == 0): ?>
 	<div class="aviso-azul">
 		Você já pode enviar seu projeto para análise!
+		<br/>Certifique-se de ter feito todas as alterações necessárias.
 	</div>
 	<?php endif; ?>
 	<?php if ($data['analise'] == 1): ?>
@@ -23,7 +24,7 @@
 	<?php endif; ?>
 	<?php if ($data['analise'] == 0): ?>
 	<div class="pilula">
-		<ul><a href="#"><li>Editar</li></a>
+		<ul><a href="#"><li>Editar Projeto</li></a>
 			<a href="colaboracao.php?id=<?=$data['id']?>"><li>Editar Colaboração</li></a>
 			<?php if($data['ativo'] == 0 && $data['temColab'] > 0 && $data['analise'] == 0): ?>
 			<a href="analise.php?id=<?=$data['id']?>"><li>Enviar para Análise</li></a>

@@ -1,4 +1,5 @@
 <h4><?=$data['nomeProjeto']?></h4>
+
 <?php if (isset($data['box']) && $data['box'] == 1): ?>
 	<br/>
 <div class='aviso-verde'>Atualizado com sucesso.</div>
@@ -11,6 +12,10 @@
 
 <br/>
 <div class="pilula">
+	<ul>
+		<a href="projeto.php?id=<?=$data['idProjeto']?>"><li>Voltar ao projeto</li></a>
+	</ul>
+	<br/><br/>
 	<ul>
 		<a href="nova_colab.php?id=<?=$data['idProjeto']?>"><li>Nova colaboração</li></a>
 	</ul>
@@ -37,5 +42,5 @@
 <?php } ?>
 </div>
 </br>
-<a href="projeto.php?id=<?=$data['idProjeto']?>">Voltar</a>
+
 <div class="clear-b">&nbsp;</div>

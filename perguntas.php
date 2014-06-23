@@ -15,8 +15,8 @@ if (isset($_POST['nome'])) {
 	$proj->setDescricao($_POST['descricao']);
 	$proj->setFrase($_POST['frase']);
 	$proj->setIdCategoria($_POST['categoria']);
-	$proj->setValor($_POST['valor']);
-	$proj->setPrazo($_POST['prazo']);
+	$proj->setValor((int)$_POST['valor']);
+	$proj->setPrazo((int)$_POST['prazo']);
 	$proj->setVideo($_POST['video']);
 	$proj->setLinks($_POST['links']);
 	$proj->setAtivo(0); // precisa passar por aprovação para ativar
@@ -27,6 +27,8 @@ if (isset($_POST['nome'])) {
 	$val = $ctr->validarProjeto($proj);
 	if ($val === True) {
 		$db = new Database;
+
+
 		$proj = $db->saveProjeto($proj);
 		$id = $proj->getId();
 		header("Location: projeto.php?id=$id");
