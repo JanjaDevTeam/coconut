@@ -16,8 +16,10 @@ if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
 	exit;
 }
 
+$data['menuAtivo'] = $_GET['local'] == "ativos" ? 2 : 1;
 
-$data = "";
+$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$data['username'] = $nome[0];
 
 $id = $_GET['id'];
 
@@ -44,10 +46,5 @@ $data['prazo']           = $projArray['prazo'];
 $data['pct']             = $projArray['pct'];
 
 
-
-$lista = $db->getAbertosList();
-$data['qtdAbertos'] = sizeof($lista);
-$lista = $db->getAtivosList();
-$data['qtdAtivos'] = sizeof($lista);
 Janja::loadTemplate('admin', 'admin/info_proj', $data);
 ?>

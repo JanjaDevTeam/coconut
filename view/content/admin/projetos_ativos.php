@@ -1,12 +1,12 @@
-<h4>PROJETOS ATIVOS</h4>
+<h2>Projetos ativos (<?=$data['qtdAtivos']?>)</h2>
 <table class='table'>
 	<thead>
 		<tr>
-			<td>ID</td>
-			<td>CATEGORIA</td>
-			<td>PROJETO</td>
-			<td class='center_text'>REVISAR</td>
-			<td class='center_text'>CONFIG</td>
+			<th>#</th>
+			<th>CATEGORIA</th>
+			<th>PROJETO</th>
+			<th class='center_text'>REVISAR</th>
+			<th class='center_text'>CONFIG</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,8 +16,8 @@
 			<td class='editar'><?= $proj['id']?></td>
 			<td><?= $proj['categoria']?></td>
 			<td><?= $proj['nome'] ?></td>
-			<td class='editar center_text'><a href='projeto.php?id=<?= $proj['id']?>&mode=007' target="blank"><img src='img/tango/contact-new.png'></a></td>
-			<td class='editar center_text'><a href='adm_info_proj.php?id=<?= $proj['id']?>'><img src='img/tango/document-properties.png'></a></td>
+			<td class='editar center_text centro'><a href='projeto.php?id=<?= $proj['id']?>&mode=007' target="blank"><img src='img/tango/contact-new.png'></a></td>
+			<td class='editar center_text centro'><a href='adm_info_proj.php?id=<?= $proj['id']?>&local=ativos'><img src='img/tango/document-properties.png'></a></td>
 		</tr>
 			
 		<?php }

@@ -25,10 +25,12 @@ if (isset($_POST['id'])) {
 		$proj = $db->toggleAnalise($proj);
 	}
 
- 	header("location: adm_projetos_abertos.php");
+ 	header("location: adm_projetos_ativos.php");
 }
 
-$data = "";
+$data['menuAtivo'] = 1;
+$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$data['username'] = $nome[0];
 
 
 if (isset($_GET['id'])) {

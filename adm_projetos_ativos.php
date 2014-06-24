@@ -16,13 +16,12 @@ if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
 }
 
 
-$data = "";
+$data['menuAtivo'] = 2;
+$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$data['username'] = $nome[0];
 
 $data['projetos'] = $db->getAtivosList();
+$data['qtdAtivos'] = sizeof($data['projetos']);
 
-$lista = $db->getAbertosList();
-$data['qtdAbertos'] = sizeof($lista);
-$lista = $db->getAtivosList();
-$data['qtdAtivos'] = sizeof($lista);
 Janja::loadTemplate('admin', 'admin/projetos_ativos', $data);
 ?>

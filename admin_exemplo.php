@@ -1,10 +1,8 @@
 <?php
 require_once('lib/janja.php');
 require_once('model/database.php');
-require_once('model/projeto.php');
 
 session_start();
-
 
 $db     = new Database;
 $vip = $db->getVipList();
@@ -15,13 +13,14 @@ if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
 	exit;
 }
 
-
-$data['menuAtivo'] = 1;
+$data['menuAtivo'] = 0;
+$lista = $db->getAbertosList();
+$data['qtdAbertos'] = sizeof($lista);
+$lista = $db->getAtivosList();
+$data['qtdAtivos'] = sizeof($lista);
 $nome = explode(" ", $_SESSION['user']['fbfullname']);
 $data['username'] = $nome[0];
 
-$data['projetos'] = $db->getAbertosList();
-$data['qtdAbertos'] = sizeof($data['projetos']);
 
-Janja::loadTemplate('admin', 'admin/projetos_abertos', $data);
+Janja::loadTemplate('admin', 'admin/exemplo', $data);
 ?>

@@ -28,7 +28,9 @@ if (isset($_POST['id'])) {
  	header("location: adm_projetos_abertos.php");
 }
 
-$data = "";
+$data['menuAtivo'] = 1;
+$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$data['username'] = $nome[0];
 
 
 if (isset($_GET['id'])) {

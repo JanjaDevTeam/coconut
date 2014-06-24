@@ -1,1 +1,1 @@
-<h4>Área Administrativa</h4>
+<h2> Bem vindo à área administrativa</h2>
