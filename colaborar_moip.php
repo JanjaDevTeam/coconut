@@ -19,8 +19,8 @@ $moip->setUniqueId($seed);
 $moip->setReason('Coconut - Fase de testes');
 $moip->setValue($colab->getValor());
 $moip->setEnvironment('test');
-$moip->setReturnURL('http://177.96.226.132:444/coconut/');
-$moip->setNotificationURL('http://177.96.226.132:444/coconut/labmoip.php');
+$moip->setReturnURL('http://177.97.0.76:444/coconut/');
+$moip->setNotificationURL('http://177.97.0.76:444/coconut/labmoip.php');
 $moip->validate();
 $moip->send();
 
