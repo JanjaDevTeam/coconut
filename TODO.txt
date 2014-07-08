@@ -1,0 +1,1 @@
+- opção no perfil para definir senha para acesso direto por email

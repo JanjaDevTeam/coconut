@@ -2,10 +2,12 @@
 class User {
 	
 	private $id;
-	private $fbid;
-	private $fbuname;
-	private $fbfullname;
-	private $fbemail;
+	private $email;
+	private $hasFb;
+	private $hasAcc;
+	private $password;
+	private $fullname;
+	private $fbId;
 	private $ativo;
 	private $dataRegistro;
 	private $dataAcesso;
@@ -15,17 +17,24 @@ class User {
 	public function setId($id) {
 		$this->id = $id;
 	}
-	public function setFbid($fbid) {
-		$this->fbid = $fbid;
+	public function setFbId($fbid) {
+		$this->fbId = $fbid;
 	}
-	public function setFbuname($fbuname) {
-		$this->fbuname = $fbuname;
+
+	public function setFullname($fullname) {
+		$this->fullname = $fullname;
 	}
-	public function setFbfullname($fbfullname) {
-		$this->fbfullname = $fbfullname;
+	public function setEmail($email) {
+		$this->email = $email;
 	}
-	public function setFbemail($fbemail) {
-		$this->fbemail = $fbemail;
+	public function setHasFb($set) {
+		$this->hasFb = $set;
+	}
+	public function setHasAcc($set) {
+		$this->hasAcc = $set;
+	}
+	public function setPassword($password) {
+		$this->password = md5($password);
 	}
 	public function setAtivo($ativo) {
 		$this->ativo = $ativo;
@@ -43,17 +52,23 @@ class User {
 	public function getId() {
 		return $this->id;
 	}
-	public function getFbid() {
-		return $this->fbid;
+	public function getFbId() {
+		return $this->fbId;
 	}
-	public function getFbuname() {
-		return $this->fbuname;
+	public function getFullname() {
+		return $this->fullname;
 	}
-	public function getFbfullname() {
-		return $this->fbfullname;
+	public function getEmail() {
+		return $this->email;
 	}
-	public function getFbemail() {
-		return $this->fbemail;
+	public function getHasFb() {
+		return $this->hasFb;
+	}
+	public function getHasAcc() {
+		return $this->hasAcc;
+	}
+	public function getPassword() {
+		return $this->password;
 	}
 	public function getAtivo() {
 		return $this->ativo;

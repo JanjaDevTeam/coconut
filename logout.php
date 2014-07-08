@@ -2,5 +2,5 @@
 require 'lib/fbconfig.php';
 $facebook->destroySession();  // to destroy facebook sesssion
 session_destroy();
-header("Location: http://janjadevteam.com/coconut/logar.php");
+header("Location: http://localhost/coconut/logar.php");
 ?>

@@ -8,8 +8,8 @@ $facebook = new Facebook(array(
 $fbuser = $facebook->getUser();
 if ($fbuser) {
   try {
-      $user_profile   = $facebook->api('/me');
-  	  $fbid       = $user_profile['id'];        // To Get Facebook ID
+        $user_profile   = $facebook->api('/me');
+  	    $fbid       = $user_profile['id'];        // To Get Facebook ID
  	    $fbuname    = $user_profile['username'];  // To Get Facebook Username
  	    $fbfullname = $user_profile['name'];      // To Get Facebook full name
 	    $fbemail    = $user_profile['email'];     // To Get Facebook email ID
@@ -20,7 +20,7 @@ if ($fbuser) {
 }
 if ($fbuser) {
   $logoutUrl = $facebook->getLogoutUrl(array(
-		 'next' => 'http://janjadevteam/coconut/logout.php',  // Logout URL full path
+		 'next' => 'http://localhost/coconut/logout.php',  // Logout URL full path
 		));
 } else {
  $loginUrl = $facebook->getLoginUrl(array(

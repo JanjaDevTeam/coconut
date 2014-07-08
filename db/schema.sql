@@ -18,10 +18,12 @@ CREATE TABLE log (
 
 CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT,
-	fbid INT NOT NULL,
-	fbuname CHAR(64) NOT NULL,
-	fbfullname CHAR(64) NOT NULL,
-	fbemail CHAR(64) NOT NULL,
+	email CHAR(64) NOT NULL,
+	hasFb TINYINT(1) NOT NULL,
+	hasAcc TINYINT(1) NOT NULL,
+	password CHAR(32) NULL,
+	fullname CHAR(64) NOT NULL,
+	fbId CHAR(16) NULL,
 	ativo INT(1) NOT NULL,
 	dataRegistro TIMESTAMP NOT NULL DEFAULT NOW(),
 	dataAcesso TIMESTAMP NOT NULL,

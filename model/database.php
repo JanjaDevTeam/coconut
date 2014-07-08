@@ -34,25 +34,27 @@ class Database extends PDO {
 
 	public function saveUser($user) {
 		$id           = $user->getId();
-		$fbid         = $user->getFbid();
-		$fbuname      = $user->getFbuname();
-		$fbfullname   = $user->getFbfullname();
-		$fbemail      = $user->getFbemail();
+		$fbId         = $user->getFbId();
+		$fullname      = $user->getFullname();
+		$email      = $user->getEmail();
+		$hasFb      = $user->getHasFb();
+		$password   = $user->getPassword();
+		$hasAcc     = $user->getHasAcc();
 		$ativo        = $user->getAtivo();
 		$dataRegistro = $user->getDataRegistro();
 		$dataAcesso   = $user->getDataAcesso();
 		
 		
 		if ($id == null) {
-			$sql = "INSERT INTO user (fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso) 
-			VALUES ($fbid, '$fbuname', '$fbfullname', '$fbemail', 1, '$dataRegistro', '$dataAcesso')";
+			$sql = "INSERT INTO user (fullname, fbId, email, hasFb, hasAcc, password, ativo, dataRegistro, dataAcesso) 
+			VALUES ('$fullname', '$fbId', '$email', '$hasFb', '$hasAcc', '$password', 1, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
 			$user->setAtivo(1);
 		} else {
-			$sql = "UPDATE user SET fbuname='$fbuname', fbfullname='$fbfullname', fbemail='$fbemail', 
+			$sql = "UPDATE user SET fullname='$fullname', email='$email', hasFb='$hasFb', hasAcc='$hasAcc',
 			ativo=$ativo, dataRegistro='$dataRegistro', dataAcesso='$dataAcesso'   
 			WHERE id = " . $id;
 			$stmt = $this->prepare($sql);
@@ -64,7 +66,7 @@ class Database extends PDO {
 	
 	
 	public function getUser($id) {
-		$sql = "SELECT fbid, fbuname, fbfullname, fbemail, ativo, dataRegistro, dataAcesso FROM user 
+		$sql = "SELECT email, password, fullname, hasFb, hasAcc, fbId, ativo, dataRegistro, dataAcesso FROM user 
 		WHERE id = " . $id;
 		$stmt = $this->prepare($sql);
 		$stmt->execute();
@@ -72,11 +74,13 @@ class Database extends PDO {
 		
 		$user = new User;
 		$user->setId($id);
-		$user->setFbid($result[0]['fbid']);
-		$user->setFbuname($result[0]['fbuname']);
-		$user->setFbfullname($result[0]['fbfullname']);
-		$user->setFbemail($result[0]['fbemail']);
+		$user->setFbId($result[0]['fbId']);
+		$user->setFullname($result[0]['fullname']);
+		$user->setEmail($result[0]['email']);
+		$user->setPassword($result[0]['password']);
 		$user->setAtivo($result[0]['ativo']);
+		$user->setHasFb($result[0]['hasFb']);
+		$user->setHasAcc($result[0]['hasAcc']);
 		$user->setDataRegistro($result[0]['dataRegistro']);
 		$user->setDataAcesso($result[0]['dataAcesso']);
 		
@@ -84,8 +88,25 @@ class Database extends PDO {
 
 	}
 	
-	public function getUserByFbEmail($fbemail) {
-		$sql = "SELECT id FROM user WHERE fbemail = '$fbemail'";
+	public function getUserByEmail($email) {
+		$sql = "SELECT id FROM user WHERE email = '$email'";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		if (sizeof($result) > 0) {
+			$id = $result[0]['id'];
+			$user = $this->getUser($id);
+			return $user;
+			
+		}
+		return False;
+	}
+	
+	public function getUserByAccount($user) {
+		$email = $user->getEmail();
+		$password = $user->getPassword();
+		$sql = "SELECT id FROM user WHERE email = '$email' AND password ='$password' AND hasAcc='1'";
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
