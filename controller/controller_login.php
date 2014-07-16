@@ -91,6 +91,11 @@ class ControllerLogin {
 			return False;
 		}
 	}
+	
+	// Redefine senha
+	public function redefinirSenha($email, $password, $password2) {
+		print 'implementar'
+	}
 }
 
 ?>
