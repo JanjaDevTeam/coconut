@@ -1,5 +1,17 @@
+<?php
+// se logado, carrega a foto
+if (isset($_SESSION['userId']) && $_SESSION['userId'] != Null) {
+	if (isset($_SESSION['fbId']) && $_SESSION['fbId'] != Null) {
+		$FOTO_PATH = "img/userpics/" . $_SESSION['userId'] . ".jpg";
+	} else {
+		$FOTO_PATH = "img/user.jpg";
+	}
+}
+
+?>
+
 <div class='col-2-3 text-r' id='menu'>
-			<?php if (isset($_SESSION['user']['fbemail'])) { ?><div class='col-5-6'><?php } ?>
+			<?php if (isset($_SESSION['userId'])) { ?><div class='col-5-6'><?php } ?>
 			<ul>
 				<?php if ($data['selecionado'] == 'explorar') : ?>
 				<li class='selecionado'><strong>EXPLORAR</strong></li>
@@ -16,7 +28,7 @@
 				
 				
 				<?php 
-				if (isset($_SESSION['user']['fbemail'])) { ?>
+				if (isset($_SESSION['userId'])) { ?>
 					<li><a href='logout.php'><strong>LOGOUT</strong></a></li>
 				
 				<?php } else {
@@ -30,12 +42,11 @@
 				<?php } ?>
 				
 			</ul>
-			<?php if (isset($_SESSION['user']['fbemail'])) { ?></div><? } ?>
-			<?php if (isset($_SESSION['user']['fbemail'])) { ?><div class='col-1-6 text-c'><?}?>
-			<?php if (isset($_SESSION['user']['fbid'])) { ?>
-			<a href='perfil.php?id=<?=$_SESSION['user']['id']?>'><img src="https://graph.facebook.com/<?= $_SESSION['user']['fbid'] ?>/picture?type=square" title='<?=$_SESSION['user']['fbfullname']?>' class='fb-pic'></a>
+			<?php if (isset($_SESSION['userId'])) { ?></div><div class='col-1-6 text-c'><? } ?>
+			<?php if (isset($_SESSION['fbId'])) { ?>
+			<a href='perfil.php?id=<?=$_SESSION['userId']?>'><img src="<?=$FOTO_PATH?>" title='<?=$_SESSION['userName']?>' class='fb-pic'></a>
 			<?php } ?>
 			
 			
-			<?php if (isset($_SESSION['user']['fbemail'])) { ?></div><? } ?>
+			<?php if (isset($_SESSION['userId'])) { ?></div><? } ?>
 		</div>

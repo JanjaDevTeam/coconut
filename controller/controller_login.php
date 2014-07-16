@@ -35,14 +35,16 @@ class ControllerLogin {
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
+			$_SESSION['fbId'] = $user->getFbId();
 			
 			$user->setDataAcesso(date("Y-m-d H:i:s"));
 			$user = $db->saveUser($user);
 			
-			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=large";
+			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=square";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);
-			Janja::Debug($_SESSION); 
+			header('location: index.php');
+			return True;
 		}
 		
 		# caso exista no banco e não tenha fb, pede a senha para unificar as contas
