@@ -1,1 +1,2 @@
 - opção no perfil para definir senha para acesso direto por email
+- hash nos forms pra evitar xsa

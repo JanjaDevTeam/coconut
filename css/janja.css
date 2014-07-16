@@ -219,7 +219,7 @@ img {
 .form-stacked label { 
 	display: block;
 	font-weight: bold;
-	margin: 0;
+	margin: 2% 0 1% 0;
 	padding: 0;
 }
 

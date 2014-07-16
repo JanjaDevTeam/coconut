@@ -269,6 +269,14 @@ overflow: auto;
 	margin: 37.5%;
 }
 
+.fb-button {
+	width: 200px;
+	height: auto;
+}
+.esqueci-senha a{
+	color: red;
+	text-decoration: none;
+}
 .fb-pic {
 	width: 40px;
 	height: auto;

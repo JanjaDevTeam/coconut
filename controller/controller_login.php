@@ -27,6 +27,15 @@ class ControllerLogin {
 			$url = "https://graph.facebook.com/" .  $fbId . "/picture?type=large";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);
+			
+			$_SESSION = array();
+			$_SESSION['userId'] = $user->getId();
+			$_SESSION['userName'] = $user->getFullname();
+			$_SESSION['fbId'] = $user->getFbId();
+			
+			header('location: index.php');
+			return True;
+			
 		}
 		
 		# caso exista no banco e tenha fb, registra na sessão;
@@ -57,16 +66,29 @@ class ControllerLogin {
 		exit;
 	}
 	
-	public function loginAcc($user) {
+	public function loginAcc($email, $password) {
 		$db = new Database;
+		$user = new User;
+		$user->setEmail($email);
+		$user->setPassword($password);
 		$user = $db->getUserByAccount($user);
 		
 		# login com sucesso.
 		if ($user != Null) {
 			#registra na sessão
+			$_SESSION = array();
+			$_SESSION['userId'] = $user->getId();
+			$_SESSION['userName'] = $user->getFullname();
+			
 			$user->setDataAcesso(date("Y-m-d H:i:s"));
 			$user = $db->saveUser($user);
-			Janja::Debug($user);
+
+			header('location: index.php');
+			return True;
+			
+		} else {
+			header('location: logar.php?action=erro');
+			return False;
 		}
 	}
 }

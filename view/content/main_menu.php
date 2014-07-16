@@ -43,7 +43,7 @@ if (isset($_SESSION['userId']) && $_SESSION['userId'] != Null) {
 				
 			</ul>
 			<?php if (isset($_SESSION['userId'])) { ?></div><div class='col-1-6 text-c'><? } ?>
-			<?php if (isset($_SESSION['fbId'])) { ?>
+			<?php if (isset($_SESSION['userId'])) { ?>
 			<a href='perfil.php?id=<?=$_SESSION['userId']?>'><img src="<?=$FOTO_PATH?>" title='<?=$_SESSION['userName']?>' class='fb-pic'></a>
 			<?php } ?>
 			
