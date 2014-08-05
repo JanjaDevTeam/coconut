@@ -63,7 +63,14 @@ class Database extends PDO {
 		return $user;
 	}
 	
-	
+	public function saveToken($idUser, $dataRegistro, $token, $motivo) {
+		$sql = "INSERT INTO token (idUser, dataRegistro, token, motivo) 
+		VALUES ($idUser, '$dataRegistro', '$token', '$motivo')";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return true;
+	}
 	
 	public function getUser($id) {
 		$sql = "SELECT email, password, fullname, hasFb, hasAcc, fbId, ativo, dataRegistro, dataAcesso FROM user 

@@ -93,8 +93,69 @@ class ControllerLogin {
 	}
 	
 	// Redefine senha
-	public function redefinirSenha($email, $password, $password2) {
-		print 'implementar'
+	public function redefinirSenha($email, $fullname, $password, $password2) {
+		print 'implementar';
+	}
+
+	public function newUser($email, $fullname, $password, $password2) {
+
+		// valida senha aqui
+		if (trim($password) != trim($password2) && len($password) >= 6) {
+			return false;
+		}
+
+		$db = new Database;
+		$user = $db->getUserByEmail($email);
+
+		# caso exista, verifica se possui cadastro por conta
+		if ($user != Null) {
+			if ($user->getHasAcc() == 1) {
+				// usuário já possui conta, redirecionar
+				print "já possui conta";
+				return false;
+			} else {
+				// registrou primeiro pelo fb
+				print "Este email está associado a uma conta do Facebook. Para criar uma senha para esta conta, 
+				logue pelo Facebook e defina a senha na sua página de perfil";
+			}
+		} else {
+			// registra o usuário
+			$now = $this->getNow();
+
+			$user = new User;
+			$user->setFullname($fullname);
+			$user->setEmail($email);
+			$user->setPassword($password);
+			$user->setHasAcc(1);
+			$user->setHasFb(0);
+			$user->setAtivo(0);
+			$user->setDataRegistro($now);
+			$user->setDataAcesso($now);
+			$user = $db->saveUser($user);
+
+			//registra token de ativação
+			$token  = $this->getToken();
+			$idUser = $user->getId();
+			$motivo = "cadastro";
+
+			$db->saveToken($idUser, $now, $token, $motivo);
+
+			// enviar email, 24 horas para ativar.
+			//redirecionar para aviso de login
+
+			Janja::Debug($user);
+		}
+
+
+	}
+
+	public function getNow() {
+		return date("Y-m-d H:i:s");
+	}
+
+	public function getToken() {
+		$gen = "Coconut2014" . $this->getNow();
+		return md5($gen);
 	}
 }
 
