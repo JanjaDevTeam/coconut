@@ -1,5 +1,6 @@
 <div class='container-100 bbox'>
-	<h4 class='text-c'>Logar</h4>
+	<h4 class='text-c'>Logar / Registrar</h4>
+	<br />
 	<div class='col-1-3'>&nbsp;</div>
 	<div class='col-1-3'>
 		
@@ -20,6 +21,10 @@
 		<hr/>
 		<?php require_once('lib/fbconfig.php'); ?>
 		<a href="<?php echo $loginUrl; ?>"><img src='img/facebook.jpg' alt='Facebook' class='text-c fb-button'/></a>
+		<hr/>
+		<div class="esqueci-senha">
+		<a href="registrar.php">Ou clique aqui para se registrar!</a>
+		</div>
 	</div>
 	<div class='col-1-3'>&nbsp;</div>
 	

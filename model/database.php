@@ -126,6 +126,16 @@ class Database extends PDO {
 		}
 		return False;
 	}
+
+	public function getTokenByToken($token) {
+		$sql = "SELECT idUser, dataRegistro, token, motivo 
+		FROM token where token='$token'";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $result;
+	}
 	
 	public function getVipList() {
 		$sql = "SELECT fbemail FROM vip";

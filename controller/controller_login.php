@@ -1,6 +1,7 @@
 <?php
 require_once('model/database.php');
 require_once('model/user.php');
+require_once('model/carteiro.php');
 require_once('lib/janja.php');
 
 class ControllerLogin {
@@ -97,7 +98,7 @@ class ControllerLogin {
 		print 'implementar';
 	}
 
-	public function newUser($email, $fullname, $password, $password2) {
+	public function registrar($email, $fullname, $password, $password2) {
 
 		// valida senha aqui
 		if (trim($password) != trim($password2) && len($password) >= 6) {
@@ -134,13 +135,14 @@ class ControllerLogin {
 			$user = $db->saveUser($user);
 
 			//registra token de ativação
-			$token  = $this->getToken();
+			$token  = $this->genToken();
 			$idUser = $user->getId();
 			$motivo = "cadastro";
 
 			$db->saveToken($idUser, $now, $token, $motivo);
 
 			// enviar email, 24 horas para ativar.
+			Carteiro::emailCadastro($email, $token);
 			//redirecionar para aviso de login
 
 			Janja::Debug($user);
@@ -149,11 +151,22 @@ class ControllerLogin {
 
 	}
 
+
+	public function ativarConta($token) {
+		//imp
+	}
+
+	public function getToken($token) {
+		$db = new Database;
+		$tokenArray = $db->getTokenByToken($token);
+		return $tokenArray;
+	}
+
 	public function getNow() {
 		return date("Y-m-d H:i:s");
 	}
 
-	public function getToken() {
+	public function genToken() {
 		$gen = "Coconut2014" . $this->getNow();
 		return md5($gen);
 	}

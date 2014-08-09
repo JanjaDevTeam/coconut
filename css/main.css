@@ -276,6 +276,7 @@ overflow: auto;
 .esqueci-senha a{
 	color: red;
 	text-decoration: none;
+	float-right: right;
 }
 .fb-pic {
 	width: 40px;
