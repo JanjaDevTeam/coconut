@@ -112,12 +112,12 @@ class ControllerLogin {
 		if ($user != Null) {
 			if ($user->getHasAcc() == 1) {
 				// usuário já possui conta, redirecionar
-				print "já possui conta";
+				header("location: registrar.php?msg=fb");
 				return false;
 			} else {
 				// registrou primeiro pelo fb
-				print "Este email está associado a uma conta do Facebook. Para criar uma senha para esta conta, 
-				logue pelo Facebook e defina a senha na sua página de perfil";
+				header("location: registrar.php?msg=fb");
+				return false;
 			}
 		} else {
 			// registra o usuário
@@ -142,10 +142,7 @@ class ControllerLogin {
 			$db->saveToken($idUser, $now, $token, $motivo);
 
 			// enviar email, 24 horas para ativar.
-			Carteiro::emailCadastro($email, $token);
-			//redirecionar para aviso de login
-
-			Janja::Debug($user);
+			return Carteiro::emailCadastro($email, $token);
 		}
 
 

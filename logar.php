@@ -22,6 +22,5 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
 
 $data['selecionado'] = 'logar';
 
-//Janja::loadTemplate('main', 'logar', $data);
 Janja::loadTemplate('main', 'logar', $data);
 ?>

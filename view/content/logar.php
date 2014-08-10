@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<div class='col-1-3'>&nbsp;</div>
-	
-	
+	<div class="clear-b"></div>
+	<br/><br/>
 </div>
 

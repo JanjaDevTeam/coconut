@@ -1,6 +1,9 @@
 <?php
 require_once('lib/janja.php');
 require_once('controller/controller_login.php');
+session_start();
+require_once('lib/fbconfig.php');
+
 $data['selecionado'] = "logar";
 
 if (isset($_POST['fullname'])) {
@@ -10,10 +13,20 @@ if (isset($_POST['fullname'])) {
 	$password2 = $_POST['password2'];
 
 	$ct = new ControllerLogin;
-	$ct->registrar($email, $fullname, $password, $password2);
+	if ($ct->registrar($email, $fullname, $password, $password2)) {
+		Janja::loadTemplate('main', 'user/registro_completo', $data);
+	}else {
+		print "email não enviado";
+	}
 
-} else {
+} else if (isset($_GET['msg'])) {
+	if ($_GET['msg'] == "fb") {
+		if(isset($loginUrl)) { $data['loginUrl'] = $loginUrl; }
+		
+		Janja::loadTemplate('main', 'user/fb', $data);
+	}
 
+}else {
 	Janja::loadTemplate('main', 'user/registrar', $data);
 }
 ?>
