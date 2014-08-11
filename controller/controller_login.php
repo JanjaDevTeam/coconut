@@ -112,7 +112,7 @@ class ControllerLogin {
 		if ($user != Null) {
 			if ($user->getHasAcc() == 1) {
 				// usuário já possui conta, redirecionar
-				header("location: registrar.php?msg=fb");
+				header("location: registrar.php?msg=acc");
 				return false;
 			} else {
 				// registrou primeiro pelo fb
@@ -142,7 +142,9 @@ class ControllerLogin {
 			$db->saveToken($idUser, $now, $token, $motivo);
 
 			// enviar email, 24 horas para ativar.
-			return Carteiro::emailCadastro($email, $token);
+			Carteiro::emailCadastro($email, $token);
+
+			return true;
 		}
 
 

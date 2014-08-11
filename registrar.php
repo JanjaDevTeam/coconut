@@ -15,8 +15,6 @@ if (isset($_POST['fullname'])) {
 	$ct = new ControllerLogin;
 	if ($ct->registrar($email, $fullname, $password, $password2)) {
 		Janja::loadTemplate('main', 'user/registro_completo', $data);
-	}else {
-		print "email não enviado";
 	}
 
 } else if (isset($_GET['msg'])) {
@@ -24,6 +22,8 @@ if (isset($_POST['fullname'])) {
 		if(isset($loginUrl)) { $data['loginUrl'] = $loginUrl; }
 		
 		Janja::loadTemplate('main', 'user/fb', $data);
+	} else if ($_GET['msg']=="acc") {
+		Janja::loadTemplate('main', 'user/acc', $data);
 	}
 
 }else {
