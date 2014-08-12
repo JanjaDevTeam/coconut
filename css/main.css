@@ -225,9 +225,10 @@ overflow: auto;
 }
 
 #footer {
+	background-color: #00372A;
 	padding: 2% 0;
 	clear: both;
-	color: light-grey;
+	color: white;
 	height: 130px;
 	position: absolute;
 	bottom: 0;

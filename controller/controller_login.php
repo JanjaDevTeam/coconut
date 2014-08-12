@@ -25,7 +25,7 @@ class ControllerLogin {
 			$user->setDataAcesso($agora);
 			$user = $db->saveUser($user);
 			
-			$url = "https://graph.facebook.com/" .  $fbId . "/picture?type=large";
+			$url = "https://graph.facebook.com/" .  $fbId . "/picture?type=square";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);
 			
@@ -40,7 +40,7 @@ class ControllerLogin {
 		}
 		
 		# caso exista no banco e tenha fb, registra na sessão;
-		if (is_object($user) && $user->getHasFb() == 1) {
+		if (is_object($user)) {
 			
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
@@ -53,18 +53,17 @@ class ControllerLogin {
 			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=square";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);
-			header('location: index.php');
+
+			if ($user->getHasFb() == 1) { 
+				header('location: index.php');
+			} else if ($user->getHasFb() == 0) {
+				$user->setHasFb(1);
+				$user = $db->saveUser($user);
+				header('location: index.php?msg=u');
+			}
 			return True;
 		}
 		
-		# caso exista no banco e não tenha fb, pede a senha para unificar as contas
-		if (is_object($user) && $user->getHasFb() == 0) {
-			# registrar na sessão apenas se digitar a senha
-			print "Digite sua senha para unificar as contas.<br/>";
-		}
-		
-		Janja::Debug($user);
-		exit;
 	}
 	
 	public function loginAcc($email, $password) {
@@ -94,9 +93,32 @@ class ControllerLogin {
 	}
 	
 	// Redefine senha
-	public function redefinirSenha($email, $fullname, $password, $password2) {
-		print 'implementar';
+	public function tokenSenha($email) {
+			$db = new Database;
+			$user = $db->getUserByEmail($email);
+			if ($user == Null) {
+				return false;
+			} else {
+				$token  = $this->genToken();
+				$idUser = $user->getId();
+				$motivo = "senha";
+				$now = $this->getNow();
+				$db->saveToken($idUser, $now, $token, $motivo);
+				Carteiro::emailSenha($email, $token);
+
+				return true;
+			}
+
+		return true;
+			
 	}
+
+	public function redefinirSenha($token) {
+		$db = new Database;
+		//verifica se o token existe ou se expirou
+		$tokenArray = $db->getTokenByToken($token);
+
+	} 
 
 	public function registrar($email, $fullname, $password, $password2) {
 
@@ -146,6 +168,8 @@ class ControllerLogin {
 
 			return true;
 		}
+
+		return true;
 
 
 	}

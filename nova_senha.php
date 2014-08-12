@@ -3,19 +3,22 @@ require_once('lib/janja.php');
 require_once('controller/controller_login.php');
 session_start();
 $data['selecionado'] = 'logar';
+$ct = new ControllerLogin;
 
-if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password2'])) {
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$password2 = $_POST['password2'];
-	
-	if ($password != $password2) {
-		header("Location: nova_senha.php?erro=snb");
-	}
-	
-	$controller = new ControllerLogin;
-	$controller->redefinirSenha($email, $password, $password2);
+if (isset($_GET['t'])) {
+	$ct->redefinirSenha($_GET['t']);
 }
 
-Janja::loadTemplate('main', 'user/nova_senha', $data);
+if (isset($_POST['email'])) {
+	$email = $_POST['email'];
+	$redefinir = $ct->tokenSenha($email);
+
+	if ($redefinir == true) {
+		Janja::loadTemplate('main', 'user/redefinir_enviado', $data);
+	}else {
+		Janja::loadTemplate('main', 'user/email_nao_existe', $data);
+	}
+} else {
+	Janja::loadTemplate('main', 'user/nova_senha', $data);
+}
 ?>

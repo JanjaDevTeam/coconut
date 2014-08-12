@@ -47,12 +47,11 @@ class Database extends PDO {
 		
 		if ($id == null) {
 			$sql = "INSERT INTO user (fullname, fbId, email, hasFb, hasAcc, password, ativo, dataRegistro, dataAcesso) 
-			VALUES ('$fullname', '$fbId', '$email', '$hasFb', '$hasAcc', '$password', 1, '$dataRegistro', '$dataAcesso')";
+			VALUES ('$fullname', '$fbId', '$email', '$hasFb', '$hasAcc', '$password', $ativo, '$dataRegistro', '$dataAcesso')";
 			$stmt = $this->prepare($sql);
 			$result = $stmt->execute();
 			$id = $this->lastInsertId();
 			$user->setId($id);
-			$user->setAtivo(1);
 		} else {
 			$sql = "UPDATE user SET fullname='$fullname', email='$email', hasFb='$hasFb', hasAcc='$hasAcc',
 			ativo=$ativo, dataRegistro='$dataRegistro', dataAcesso='$dataAcesso'   
@@ -66,6 +65,14 @@ class Database extends PDO {
 	public function saveToken($idUser, $dataRegistro, $token, $motivo) {
 		$sql = "INSERT INTO token (idUser, dataRegistro, token, motivo) 
 		VALUES ($idUser, '$dataRegistro', '$token', '$motivo')";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return true;
+	}
+
+	public function delToken($token) {
+		$sql = "DELETE FROM token where token = '$token'";
 		$stmt = $this->prepare($sql);
 		$result = $stmt->execute();
 

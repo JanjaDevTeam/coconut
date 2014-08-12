@@ -1,3 +1,8 @@
+<?php if ($data['msg'] == "u"): ?>
+<div class="aviso-azul">
+Sua conta do Facebook foi associada à sua conta registrada previamente na Solucionática.
+</div>
+<?php endif; ?>
 <div id='banner'>
 		<div class='col-1-3-pad-1 bbox text-c'>
 			<img src='img/tmp/01.jpg' class='destaque-img'/>
@@ -11,7 +16,11 @@
 			<p><strong>CRIE UM PROJETO</strong></p>
 		</div>
 	</div>
-	
+
+
+	<!-- 
+
+
 	<div id='projetos'>
 		<div class='text-c'><h4>DESTAQUES</h4></div>
 		<hr/>
@@ -268,4 +277,6 @@ for ($i=0; $i<=3; $i++) {
 }
 ?>
 </div>
+
+-->
 <div class='clear-b'></div>

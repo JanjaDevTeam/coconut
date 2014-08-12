@@ -6,6 +6,15 @@ require_once('lib/fbconfig.php');
 
 $data['selecionado'] = "logar";
 
+if(isset($_GET['code'])) {
+	require_once('lib/fbconfig.php');
+	$controller = new ControllerLogin;
+	if(isset($fbuser)) {
+		$controller->loginFb($fbemail, $fbfullname, $fbid);
+	}
+}
+
+
 if (isset($_POST['fullname'])) {
 	$fullname = $_POST['fullname'];
 	$email = $_POST['email'];
@@ -13,7 +22,8 @@ if (isset($_POST['fullname'])) {
 	$password2 = $_POST['password2'];
 
 	$ct = new ControllerLogin;
-	if ($ct->registrar($email, $fullname, $password, $password2)) {
+	if ($ct->registrar($email, $fullname, $password, $password2) == true) {
+		$data['fullname'] = $fullname;
 		Janja::loadTemplate('main', 'user/registro_completo', $data);
 	}
 

@@ -1,6 +1,8 @@
 <?php
 require_once('lib/janja.php');
 require_once('controller/controller_login.php');
+require_once('model/database.php');
+require_once('model/user.php');
 
 if (!isset($_GET['t'])) {
 	// redireciona para index
@@ -20,11 +22,28 @@ if (!isset($_GET['t'])) {
 
 		// passou 24 horas?
 		if ($segundos < 86400) {
-			// pede a senha e ativa o cadastro.
-			print "Passaram $segundos segundos desde o cadastro";
+			// ativa o cadastro
+			$db = new Database;
+			$user = $db->getUser($tokenArray[0]['idUser']);
+			$user->setAtivo(1);
+			$user = $db->saveUser($user);
+
+			// apaga token
+			$db->delToken($tokenArray['token']);
+
+			$data['selecionado'] = "";
+
+			$nameArray = explode(" ", $user->getFullname());
+			$data['nome'] = $nameArray[0]; 
+
+
+			Janja::loadTemplate('main', 'user/ativo', $data);
 		} else {
 			// prazo encerrado, apaga token e usuario
 		}
+	} else {
+		// token não existe
+
 	}
 }
 
