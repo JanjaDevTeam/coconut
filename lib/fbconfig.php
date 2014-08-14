@@ -5,6 +5,15 @@ $facebook = new Facebook(array(
   'secret' => '9c1c07be8d04747eaef0e81db1ff5e32',  // Facebook App Secret
   'cookie' => true,	
 ));
+
+/*
+$facebook = new Facebook(array(
+  'appId'  => '620037151451278',   // Facebook App ID 
+  'secret' => 'c945856a99f7719f3862a0659d5f0878',  // Facebook App Secret
+  'cookie' => true, 
+));
+*/
+
 $fbuser = $facebook->getUser();
 if ($fbuser) {
   try {

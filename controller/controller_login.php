@@ -12,9 +12,8 @@ class ControllerLogin {
 		
 		# caso não ache no banco, cadastra
 		if ($user == Null) {
-			print "Cadastrando novo usuário <br/>";
 			
-			$agora = date("Y-m-d H:i:s");
+			$agora = $this->getNow();
 			$user = new User;
 			$user->setHasFb(1);
 			$user->setHasAcc(0);
@@ -23,6 +22,7 @@ class ControllerLogin {
 			$user->setFullname($fullname);
 			$user->setDataRegistro($agora);
 			$user->setDataAcesso($agora);
+			$user->setAtivo(1);
 			$user = $db->saveUser($user);
 			
 			$url = "https://graph.facebook.com/" .  $fbId . "/picture?type=square";
@@ -42,6 +42,10 @@ class ControllerLogin {
 		# caso exista no banco e tenha fb, registra na sessão;
 		if (is_object($user)) {
 			
+			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=square";
+			$img = "img/userpics/" . $user->getId() . ".jpg";
+			copy($url, $img);
+			
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
@@ -49,10 +53,6 @@ class ControllerLogin {
 			
 			$user->setDataAcesso(date("Y-m-d H:i:s"));
 			$user = $db->saveUser($user);
-			
-			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=square";
-			$img = "img/userpics/" . $user->getId() . ".jpg";
-			copy($url, $img);
 
 			if ($user->getHasFb() == 1) { 
 				header('location: index.php');
@@ -80,7 +80,7 @@ class ControllerLogin {
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
 			
-			$user->setDataAcesso(date("Y-m-d H:i:s"));
+			$user->setDataAcesso($this->getNow());
 			$user = $db->saveUser($user);
 
 			header('location: index.php');

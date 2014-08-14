@@ -10,6 +10,16 @@ class Database extends PDO {
 			'db_username' => 'janjaCoconut',
 			'db_password' => 'janjaCoconut'
 		);
+
+		/*
+		$config = array(
+			'db_type' => 'mysql',
+			'db_host' => 'localhost',
+			'db_name' => 'rc2co684_coconut',
+			'db_username' => 'rc2co684_coconut',
+			'db_password' => 'janja2099'
+		);
+		/*
 		
 		try {
 			parent::__construct($config['db_type'].':host='.$config['db_host'].';dbname='.$config['db_name'],$config['db_username'],$config['db_password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
