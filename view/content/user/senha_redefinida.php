@@ -1,0 +1,1 @@
+<p>Sua senha foi redefinida com sucesso.</p>

@@ -71,6 +71,17 @@ class Database extends PDO {
 		}
 		return $user;
 	}
+
+	public function updateSenha($user) {
+		$senha = $user->getPassword();
+		$id    = $user->getId();
+
+		$sql = "UPDATE user SET password='$senha' WHERE id=$id";
+		$stmt = $this->prepare($sql);
+		$result = $stmt->execute();
+
+		return true;
+	}
 	
 	public function saveToken($idUser, $dataRegistro, $token, $motivo) {
 		$sql = "INSERT INTO token (idUser, dataRegistro, token, motivo) 

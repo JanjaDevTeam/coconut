@@ -29,7 +29,7 @@ if (!isset($_GET['t'])) {
 			$user = $db->saveUser($user);
 
 			// apaga token
-			$db->delToken($tokenArray['token']);
+			$db->delToken($tokenArray[0]['token']);
 
 			$data['selecionado'] = "";
 
@@ -40,9 +40,13 @@ if (!isset($_GET['t'])) {
 			Janja::loadTemplate('main', 'user/ativo', $data);
 		} else {
 			// prazo encerrado, apaga token e usuario
+			$db = new Database;
+			$db->delToken($tokenArray[0]['token']);
+			Janja::loadTemplate('main', 'user/token_inexistente', $data);
 		}
 	} else {
 		// token não existe
+		Janja::loadTemplate('main', 'user/token_inexistente', $data);
 
 	}
 }
