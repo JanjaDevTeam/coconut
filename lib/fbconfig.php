@@ -29,7 +29,7 @@ if ($fbuser) {
 }
 if ($fbuser) {
   $logoutUrl = $facebook->getLogoutUrl(array(
-		 'next' => 'http://localhost/coconut/logout.php',  // Logout URL full path
+		 'next' => 'http://' . $_SERVER['HTTP_HOST'] . '/coconut/logout.php',  // Logout URL full path
 		));
 } else {
  $loginUrl = $facebook->getLoginUrl(array(
