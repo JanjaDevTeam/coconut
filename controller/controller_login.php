@@ -37,27 +37,27 @@ class ControllerLogin {
 			header('location: index.php');
 			return True;
 			
-		}
+		} else {
 		
-		# caso exista no banco e tenha fb, registra na sessão;
-		if (is_object($user)) {
-			
-			$url = "https://graph.facebook.com/" .  $user->getFbId() . "/picture?type=square";
+			# caso exista no banco e tenha fb, registra na sessão;
+
+			$url = "https://graph.facebook.com/" .  $fbId . "/picture?type=square";
 			$img = "img/userpics/" . $user->getId() . ".jpg";
 			copy($url, $img);
 			
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
-			$_SESSION['fbId'] = $user->getFbId();
+			$_SESSION['fbId'] = $fbId;
 			
-			$user->setDataAcesso(date("Y-m-d H:i:s"));
+			$user->setDataAcesso($this->getNow());
 			$user = $db->saveUser($user);
 
 			if ($user->getHasFb() == 1) { 
 				header('location: index.php');
 			} else if ($user->getHasFb() == 0) {
 				$user->setHasFb(1);
+				$user->setFbId($fbId);
 				$user = $db->saveUser($user);
 				header('location: index.php?msg=u');
 			}
@@ -79,6 +79,7 @@ class ControllerLogin {
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
+			if ($user->getHasFb() == 1) { $_SESSION['fbId'] = $user->getFbId(); }
 			
 			$user->setDataAcesso($this->getNow());
 			$user = $db->saveUser($user);

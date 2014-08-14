@@ -63,7 +63,7 @@ class Database extends PDO {
 			$id = $this->lastInsertId();
 			$user->setId($id);
 		} else {
-			$sql = "UPDATE user SET fullname='$fullname', email='$email', hasFb='$hasFb', hasAcc='$hasAcc',
+			$sql = "UPDATE user SET fullname='$fullname', fbId='$fbId', email='$email', hasFb='$hasFb', hasAcc='$hasAcc',
 			ativo=$ativo, dataRegistro='$dataRegistro', dataAcesso='$dataAcesso'   
 			WHERE id = " . $id;
 			$stmt = $this->prepare($sql);
