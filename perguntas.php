@@ -6,6 +6,11 @@ require_once('controller/controller_projeto.php');
 
 session_start();
 
+if(!isset($_SESSION['userId'])) {
+	Janja::loadTemplate('main', 'apenas_logado', $data);
+}
+
+
 if (isset($_POST['nome'])) {
 	$proj = new Projeto;
 

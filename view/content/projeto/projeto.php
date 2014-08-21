@@ -3,7 +3,7 @@
 <br/>
 <div class='col-2-3'>
 	<div class='youtubeVideo'>
-		<iframe src="//www.youtube.com/embed/<?=$data['videoId']?>" frameborder="0" allowfullscreen></iframe>
+		<iframe src="http://www.youtube.com/embed/<?=$data['videoId']?>" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<?php if($data['temColab'] == 0 && $data['analise'] == 0): ?>
 	<div class="aviso-azul">
@@ -61,7 +61,7 @@
 	
 	<div id="proponenteQuadro" class='bbox'>
 		<div class='col-1-3'>
-			<a href='perfil.php?id=<?=$data['idProponente']?>'><img src="img/userpics/<?=$data['idProponente']?>.jpg"/></a>
+			<a href='perfil.php?id=<?=$data['idProponente']?>'><img src="<?=$data['foto']?>"/></a>
 		</div>
 		
 		<div class='col-2-3'>

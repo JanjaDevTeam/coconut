@@ -4,5 +4,9 @@ session_start();
 
 $data['selecionado'] = 'enviar';
 
-Janja::loadTemplate('main', 'projeto/enviar_projeto', $data);
+if(isset($_SESSION['userId'])) {
+	Janja::loadTemplate('main', 'projeto/enviar_projeto', $data);
+} else {
+	Janja::loadTemplate('main', 'apenas_logado', $data);
+}
 ?>

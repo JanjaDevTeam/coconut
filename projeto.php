@@ -25,6 +25,7 @@ if (!isset($_GET['id'])) {
 	$data['ativo']           = $projArray['projeto']->getAtivo();
 	$data['analise']         = $projArray['projeto']->getAnalise();
 	$data['id']              = $projArray['projeto']->getId();
+	$data['foto']            = $projArray['foto'];
 
 	$data['temColab'] = sizeof($data['colaboracao']) > 0 ? 1 : 0;
 }

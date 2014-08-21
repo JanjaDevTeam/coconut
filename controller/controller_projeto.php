@@ -14,7 +14,7 @@ class ControllerProjeto {
 		
 		// dados do usuário que criou o projeto
 		$user = $db->getUser($proj->getIdUser());
-		$nome = $user->getFbfullname();
+		$nome = $user->getFullname();
 		$nome = explode(' ', $nome);
 		$nome = $nome[0];		
 		// calcula quantas colaborações foram compradas
@@ -26,7 +26,8 @@ class ControllerProjeto {
 		
 		// id do video para embed
 		$exp = explode('?v=', $proj->getVideo());
-		$data['videoId'] = $exp[1];
+		$videoId = explode("&", $exp[1]);
+		$data['videoId'] = $videoId[0];
 		
 		$data['backers'] = $backers;
 		$data['projeto'] = $proj;
@@ -36,6 +37,14 @@ class ControllerProjeto {
 		$data['pct'] = $proj->getPorcentagem();
 		$data['categoria'] = $proj->getCategoria();
 		$data['prazo'] = $proj->getPrazo();
+
+		// foto
+		$fotoPath = "img/userpics/" . $user->getId() . ".jpg";
+		if (file_exists($fotoPath)) {
+			$data['foto'] = $fotoPath;
+		} else {
+			$data['foto'] = "img/user.jpg";
+		}
 		
 		
 		return $data;
