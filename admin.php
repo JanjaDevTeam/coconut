@@ -7,14 +7,14 @@ session_start();
 $db     = new Database;
 $vip = $db->getVipList();
 
-if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
+if(!isset($_SESSION['email']) || !in_array($_SESSION['email'], $vip)) {
 	header('HTTP/1.0 403 Forbidden');
 	echo "<h4>Forbidden<h4>";
 	exit;
 }
 
 $data['menuAtivo'] = 0;
-$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$nome = explode(" ", $_SESSION['userName']);
 $data['username'] = $nome[0];
 
 /*

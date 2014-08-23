@@ -13,10 +13,9 @@ session_start();
 
 $db = new Database;
 $user = $db->getUser($id);
-$data['fbfullname'] = $user->getFbfullname();
-$data['fbemail'] = $user->getFbemail();
+$data['fbfullname'] = $user->getFullname();
+$data['fbemail'] = $user->getEmail();
 $data['fbid'] = $user->getFbid();
-$data['fbuname'] = $user->getFbuname();
 $data['selecionado'] = '';
 
 Janja::loadTemplate('main', 'perfil', $data);

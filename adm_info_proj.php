@@ -10,7 +10,7 @@ session_start();
 $db     = new Database;
 $vip = $db->getVipList();
 
-if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
+if(!isset($_SESSION['email']) || !in_array($_SESSION['email'], $vip)) {
 	header('HTTP/1.0 403 Forbidden');
 	echo "<h4>Forbidden<h4>";
 	exit;
@@ -18,7 +18,7 @@ if(!isset($_SESSION['user']) || !in_array($_SESSION['user']['fbemail'], $vip)) {
 
 $data['menuAtivo'] = $_GET['local'] == "ativos" ? 2 : 1;
 
-$nome = explode(" ", $_SESSION['user']['fbfullname']);
+$nome = explode(" ", $_SESSION['userName']);
 $data['username'] = $nome[0];
 
 $id = $_GET['id'];
@@ -29,13 +29,12 @@ $data['id'] = $id;
 $data['nome'] = $proj->getNome();
 $data['categoria'] = $proj->getCategoria();
 $owner = $db->getOwnerInfo($id);
-$data['owner'] = $owner['fbfullname'];
-$data['email'] = $owner['fbemail'];
+$data['owner'] = $owner['fullname'];
+$data['email'] = $owner['email'];
 $data['ativo'] = ($proj->getAtivo() == 0) ? "Inativo" : "Ativo";
 $data['analise'] = ($proj->getAnalise() == 0) ? "Não enviado" : "Em análise";
 $data['projAnalise'] = $proj->getAnalise();
 $data['projAtivo'] = $proj->getAtivo();
-
 
 
 

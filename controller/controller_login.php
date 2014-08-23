@@ -33,6 +33,7 @@ class ControllerLogin {
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
 			$_SESSION['fbId'] = $user->getFbId();
+			$_SESSION['email'] = $user->getEmail();
 			
 			header('location: index.php');
 			return True;
@@ -49,6 +50,7 @@ class ControllerLogin {
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
 			$_SESSION['fbId'] = $fbId;
+			$_SESSION['email'] = $user->getEmail();
 			
 			$user->setDataAcesso($this->getNow());
 			$user = $db->saveUser($user);
@@ -79,6 +81,7 @@ class ControllerLogin {
 			$_SESSION = array();
 			$_SESSION['userId'] = $user->getId();
 			$_SESSION['userName'] = $user->getFullname();
+			$_SESSION['email'] = $user->getEmail();
 			if ($user->getHasFb() == 1) { $_SESSION['fbId'] = $user->getFbId(); }
 			
 			$user->setDataAcesso($this->getNow());

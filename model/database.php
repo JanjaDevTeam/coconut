@@ -313,7 +313,7 @@ class Database extends PDO {
 	}
 
 	public function getOwnerInfo($idProjeto) {
-		$sql = 'SELECT fbfullname, fbemail FROM user, projeto 
+		$sql = 'SELECT fullname, email FROM user, projeto 
 		WHERE projeto.idUser = user.id AND projeto.id = ' . $idProjeto;
 
 		$stmt = $this->prepare($sql);

@@ -144,7 +144,8 @@ class Projeto {
 	public function getImage() {
 		$video    = explode("?v=", $this->getVideo());
 		$videoId  = $video[1];
-		$link     = "http://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+		$video    = explode('&', $videoId);
+		$link     = "http://img.youtube.com/vi/" . $video[0] . "/hqdefault.jpg";
 		
 		return $link;
 	}

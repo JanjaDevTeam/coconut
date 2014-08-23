@@ -19,10 +19,6 @@
 			<td class='cell-cinza'>Fb Id:</td>
 			<td><?=$data['fbid']?></td>
 		</tr>
-		<tr>
-			<td class='cell-cinza'>Fb User:</td>
-			<td><?=$data['fbuname']?></td>
-		</tr>
 	</table>
 </div>
 </div>
